@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>음악의 역사 — 천 년의 소리 여행</title>
+<meta property="og:title" content="음악의 역사 · 천 년의 소리 여행">
+<meta property="og:description" content="한 줄짜리 노래에서 오늘의 영화음악까지. 중세·르네상스·바로크·고전주의·낭만·근현대를 아이와 함께 듣고 이야기 나누는 음악사 여행.">
+<meta name="description" content="음악 양식의 역사 여행. 중세 그레고리오 성가에서 시작해 르네상스·바로크·고전주의·낭만·근현대까지, 시대마다 들어볼 곡과 쉬운 비유와 깊은 이야기.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pagodream.github.io/musichistory/">
+<meta property="og:site_name" content="음악의 역사">
+<meta property="og:image" content="https://pagodream.github.io/musichistory/og-music.jpg">
+<meta property="og:image:secure_url" content="https://pagodream.github.io/musichistory/og-music.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pagodream.github.io/musichistory/og-music.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15110c; --ink-2:#1d1812; --panel:#241d15; --panel-2:#2b2319;
+    --line:rgba(201,162,91,0.22); --line-soft:rgba(201,162,91,0.12);
+    --gold:#c9a25b; --gold-bright:#e2bd76; --gold-deep:#9b7a3f;
+    --cream:#ece1cd; --cream-dim:#c7b89c; --muted:#9a8a6f; --rose:#c98f72;
+    --serif-ko:'Nanum Myeongjo',serif; --serif-la:'Cormorant Garamond',serif; --sans:'Noto Sans KR',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--cream);font-family:var(--sans);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(120% 80% at 50% -10%, rgba(201,162,91,0.16), transparent 55%),radial-gradient(80% 60% at 80% 110%, rgba(201,143,114,0.08), transparent 60%),linear-gradient(180deg,#16120c 0%, #15110c 40%, #120e09 100%)}
+  body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .wrap{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:0 22px 80px}
+
+  header{padding:84px 0 26px;text-align:center}
+  .memorial-tag{font-family:var(--serif-ko);font-size:13px;letter-spacing:.32em;color:var(--gold);opacity:.9;margin-bottom:30px}
+  .ornament{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto 28px;max-width:240px}
+  .ornament .l{height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--gold-deep))}
+  .ornament .r{height:1px;flex:1;background:linear-gradient(90deg,var(--gold-deep),transparent)}
+  .ornament .d{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 12px rgba(201,162,91,.6)}
+  .latin-title{font-family:var(--serif-la);font-style:italic;font-weight:500;font-size:clamp(20px,5.5vw,30px);color:var(--gold-bright);letter-spacing:.01em;margin-bottom:10px}
+  h1{font-family:var(--serif-ko);font-weight:800;font-size:clamp(30px,8vw,46px);line-height:1.28;color:var(--cream);letter-spacing:-.01em;margin-bottom:18px}
+  h1 .small{display:block;font-size:.5em;font-weight:400;color:var(--cream-dim);letter-spacing:.05em;margin-top:14px}
+  .epigraph{font-family:var(--serif-ko);font-size:clamp(17px,4.4vw,21px);color:var(--gold-bright);line-height:1.6;margin:34px auto 8px;max-width:480px}
+  .epigraph .q{font-family:var(--serif-la);font-size:1.6em;color:var(--gold);vertical-align:-.18em;opacity:.7;margin:0 .08em}
+  .epigraph-by{font-family:var(--serif-ko);font-size:14px;color:var(--muted);letter-spacing:.1em;margin-top:14px;display:block}
+  .intro{font-size:15px;color:var(--cream-dim);line-height:1.95;text-align:center;max-width:560px;margin:42px auto 0;font-weight:300;word-break:keep-all;text-wrap:balance}
+  .epigraph,.thought-intro,.ded-h,.foot-quote .big,.pt-title,h1 .small{word-break:keep-all;text-wrap:balance}
+
+  .thought{margin:46px auto 4px;max-width:600px}
+  .thought-intro{font-family:var(--serif-ko);font-size:14.5px;color:var(--cream-dim);text-align:center;line-height:2;margin-bottom:24px}
+  .thought-card{border:1px solid var(--line);border-radius:14px;padding:24px 22px;margin:14px 0;background:linear-gradient(180deg,rgba(201,162,91,0.06),rgba(201,162,91,0.015))}
+  .thought-card h3{font-family:var(--serif-ko);font-size:15px;color:var(--gold-bright);font-weight:700;letter-spacing:.04em;margin-bottom:15px;text-align:center}
+  .thought-card .steps{list-style:none;margin:0 0 14px;padding:0}
+  .thought-card .steps li{font-family:var(--serif-ko);font-size:15px;color:var(--cream);padding:5px 0}
+  .thought-card .num{color:var(--gold);font-family:var(--serif-la);font-size:1.15em;font-style:italic;margin-right:10px}
+  .thought-card p{font-family:var(--serif-ko);font-size:14px;color:var(--cream-dim);line-height:2;margin:0}
+  .thought-by{text-align:center;font-size:12px;color:var(--muted);letter-spacing:.12em;margin-top:14px}
+  .tribute{max-width:600px;margin:56px auto 8px;padding:0 6px}
+  .tribute-orn{margin-bottom:16px}
+  .tribute-h{font-family:var(--serif-ko);font-size:clamp(20px,5.4vw,26px);color:var(--gold-bright);text-align:center;font-weight:700;letter-spacing:.03em;margin-bottom:28px}
+  .tribute-body p{font-family:var(--serif-ko);font-size:15px;color:var(--cream-dim);line-height:2.1;margin:0 0 19px}
+  .tribute-body strong{color:var(--gold-bright);font-weight:700}
+  .tribute-body a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--line);transition:color .3s,border-color .3s}
+  .tribute-body a:hover{color:var(--gold-bright);border-color:var(--gold)}
+  .tribute-close{font-family:var(--serif-ko);color:var(--cream)!important;text-align:center;font-size:16px!important;margin-top:26px!important}
+  .tribute-sign{text-align:right;font-family:var(--serif-ko);font-size:13px;color:var(--muted);margin-top:10px;letter-spacing:.04em}
+  .caeum{max-width:600px;margin:48px auto 0;padding:0 6px}
+  .caeum-h{font-family:var(--serif-ko);font-size:clamp(18px,4.6vw,22px);color:var(--gold-bright);text-align:center;font-weight:700;letter-spacing:.02em;margin:0 0 22px}
+  .caeum-quote{border-left:2px solid var(--gold-deep,#8a6c34);padding:3px 0 3px 18px;margin:0 0 18px}
+  .caeum-quote p{font-family:var(--serif-ko);font-size:15px;color:var(--cream);line-height:1.95;margin:0 0 8px}
+  .caeum-by{font-family:var(--serif-ko);font-size:12.5px;color:var(--muted);letter-spacing:.04em}
+  .caeum-note{font-family:var(--serif-ko);font-size:14.5px;color:var(--cream-dim);line-height:2.05;margin:0}
+  .maker{margin-top:24px;font-size:12px;color:var(--muted);letter-spacing:.05em}
+  .maker a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line-soft);transition:color .3s}
+  .maker a:hover{color:var(--gold-bright)}
+  .links-out{margin-top:36px}
+  .links-intro{font-family:var(--serif-ko);font-size:13.5px;color:var(--cream-dim);letter-spacing:.02em;margin:0 0 11px}
+  .links-row{margin:0;font-size:13.5px;font-family:var(--sans)}
+  .links-row a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .3s,border-color .3s}
+  .links-row a:hover{color:var(--gold-bright);border-color:var(--gold)}
+  .page-turn{display:flex;align-items:center;justify-content:center;gap:14px;max-width:560px;margin:42px auto 0;padding:18px 24px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,rgba(201,162,91,0.07),rgba(201,162,91,0.015));text-decoration:none;transition:background .35s,border-color .35s}
+  .page-turn:hover{background:rgba(201,162,91,0.13);border-color:var(--gold-deep)}
+  .page-turn .pt-arrow{font-family:var(--serif-la);font-size:27px;color:var(--gold);flex:none;transition:transform .35s}
+  .page-turn.next:hover .pt-arrow{transform:translateX(5px)}
+  .page-turn.prev:hover .pt-arrow{transform:translateX(-5px)}
+  .page-turn .pt-text{display:flex;flex-direction:column;line-height:1.3;text-align:center}
+  .page-turn .pt-label{font-family:var(--serif-ko);font-size:11px;letter-spacing:.24em;color:var(--gold)}
+  .page-turn .pt-title{font-family:var(--serif-ko);font-size:15px;color:var(--cream);margin-top:2px}
+  .howto-wrap{text-align:center;margin-top:34px}
+  .howto{font-size:13px;color:var(--muted);text-align:center;margin:0 auto;padding:12px 18px;border:1px solid var(--line-soft);border-radius:100px;display:inline-block}
+  .howto b{color:var(--gold);font-weight:500}
+  .modebar{display:flex;justify-content:center;gap:8px;margin-top:18px;flex-wrap:wrap}
+  .mode-btn{font-family:var(--sans);font-size:12.5px;color:var(--cream-dim);background:transparent;border:1px solid var(--line-soft);border-radius:100px;padding:8px 16px;cursor:pointer;transition:all .3s ease;font-weight:300}
+  .mode-btn:hover{border-color:var(--line);color:var(--cream)}
+  .mode-btn.on{background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:#14110c;border-color:transparent;font-weight:500;box-shadow:0 2px 10px rgba(201,162,91,.3)}
+
+  .chapters{margin-top:50px}
+  .chapter{border-top:1px solid var(--line-soft);opacity:0;transform:translateY(18px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .chapter:last-child{border-bottom:1px solid var(--line-soft)}
+  .chapter.rec{background:linear-gradient(180deg,rgba(201,162,91,0.07),rgba(201,162,91,0.02));border-top:1px solid var(--line);border-radius:14px;margin-bottom:18px}
+  .ch-head{display:flex;align-items:flex-start;gap:18px;padding:30px 6px;cursor:pointer;position:relative;transition:background .4s ease}
+  .ch-head:hover{background:rgba(201,162,91,0.035)}
+  .chapter.rec .ch-head{padding:26px 16px}
+  .ch-num{font-family:var(--serif-la);font-size:clamp(34px,9vw,50px);font-weight:500;color:var(--gold);opacity:.32;line-height:.9;min-width:54px;transition:opacity .4s ease,text-shadow .4s ease}
+  .chapter.open .ch-num{opacity:.85;text-shadow:0 0 22px rgba(201,162,91,.45)}
+  .chapter.rec .ch-num{opacity:.9;font-size:clamp(26px,7vw,38px)}
+  .ch-body{flex:1;min-width:0}
+  .ch-era{font-family:var(--serif-la);font-style:italic;font-size:14px;color:var(--rose);letter-spacing:.08em;margin-bottom:3px}
+  .ch-latin{font-family:var(--serif-la);font-size:clamp(24px,6.5vw,33px);font-weight:600;color:var(--cream);line-height:1.1;letter-spacing:.01em}
+  .ch-ko{font-family:var(--serif-ko);font-size:16px;color:var(--gold-bright);font-weight:700;margin-top:4px}
+  .ch-quote{font-family:var(--serif-ko);font-size:14.5px;color:var(--cream-dim);line-height:1.75;margin-top:13px;padding-left:14px;border-left:2px solid var(--line)}
+  .ch-note{font-size:12px;color:var(--muted);margin-top:9px;font-weight:300}
+  .ch-movie{font-family:var(--serif-ko);font-size:14.5px;color:var(--gold-bright);font-weight:700;margin-top:14px}
+  .ch-history{font-family:var(--serif-ko);font-size:14px;color:var(--cream-dim);line-height:1.95;margin-top:9px;font-weight:400}
+  .ch-meta{display:flex;align-items:center;gap:8px;margin-top:14px}
+  .ch-count{font-size:12px;color:var(--gold);letter-spacing:.1em}
+  .ch-toggle{margin-left:auto;align-self:center;width:30px;height:30px;flex:none;border:1px solid var(--line);border-radius:50%;color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:16px;transition:transform .45s cubic-bezier(.2,.7,.2,1),background .3s}
+  .ch-head:hover .ch-toggle{background:rgba(201,162,91,0.1)}
+  .chapter.open .ch-toggle{transform:rotate(45deg)}
+
+  .tracks{overflow:hidden;max-height:0;transition:max-height .7s cubic-bezier(.3,.8,.2,1)}
+  .tracks-inner{padding:2px 0 28px}
+  .chapter.rec .tracks-inner{padding:2px 8px 26px}
+  .track{display:flex;align-items:flex-start;gap:15px;padding:13px 12px;border-radius:12px;cursor:pointer;transition:background .3s ease;position:relative}
+  .track:hover{background:rgba(201,162,91,0.05)}
+  .track.active{background:rgba(201,162,91,0.08)}
+  .thumb{width:78px;height:52px;flex:none;border-radius:8px;overflow:hidden;position:relative;background:var(--panel);border:1px solid var(--line-soft);margin-top:2px}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92;transition:opacity .3s,transform .5s}
+  .track:hover .thumb img{opacity:1;transform:scale(1.06)}
+  .thumb .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(20,16,11,.32);transition:background .3s}
+  .track:hover .thumb .play{background:rgba(20,16,11,.12)}
+  .thumb .play svg{width:22px;height:22px;filter:drop-shadow(0 1px 4px rgba(0,0,0,.6))}
+  .t-info{flex:1;min-width:0}
+  .t-title{font-size:14.5px;color:var(--cream);font-weight:400;line-height:1.4}
+  .t-sub{font-size:12px;color:var(--muted);margin-top:3px;font-weight:300}
+  .track.active .t-title{color:var(--gold-bright)}
+  .rec-badge{display:inline-block;font-size:10.5px;font-weight:500;color:#14110c;background:linear-gradient(135deg,var(--gold-bright),var(--gold));padding:1.5px 8px;border-radius:100px;margin-left:8px;letter-spacing:.02em;vertical-align:middle;white-space:nowrap;box-shadow:0 1px 6px rgba(201,162,91,.35)}
+  .voice{font-family:var(--serif-ko);font-size:13px;color:var(--cream-dim);line-height:1.85;margin-top:10px;padding:11px 13px;border-left:2px solid var(--gold-deep);background:rgba(201,162,91,0.05);border-radius:0 8px 8px 0}
+  .voice .v-by{display:block;font-size:11px;color:var(--muted);letter-spacing:.08em;margin-top:7px}
+  .eq{display:none;gap:2px;align-items:flex-end;height:13px;margin-top:7px}
+  .track.active .eq{display:flex}
+  .eq span{width:2.5px;background:var(--gold);border-radius:2px;animation:eq .9s ease-in-out infinite}
+  .eq span:nth-child(2){animation-delay:.25s}.eq span:nth-child(3){animation-delay:.5s}.eq span:nth-child(4){animation-delay:.15s}
+  @keyframes eq{0%,100%{height:3px}50%{height:13px}}
+  .player-slot{}
+  .player{padding:10px 12px 4px}
+  .player .frame{position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 50px rgba(0,0,0,.5);background:#000}
+  .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .blocked{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:24px}
+  .blocked-msg{font-family:var(--serif-ko);font-size:14px;color:var(--cream-dim);line-height:1.8}
+  .blocked-link{font-family:var(--sans);font-size:13px;color:#14110c;background:linear-gradient(135deg,var(--gold-bright),var(--gold));padding:10px 22px;border-radius:100px;text-decoration:none;font-weight:500;box-shadow:0 2px 10px rgba(201,162,91,.35)}
+  .blocked-link:hover{filter:brightness(1.08)}
+  .pseek{display:flex;align-items:center;gap:11px;margin-top:13px;padding:0 2px}
+  .ptime{font-family:var(--sans);font-size:11px;color:var(--cream-dim);font-weight:300;font-variant-numeric:tabular-nums;min-width:38px;text-align:center;letter-spacing:.02em}
+  .pbar{position:relative;flex:1;height:5px;background:var(--line-soft);border-radius:100px;cursor:pointer}
+  .pbar:hover{height:7px}
+  .pbar:hover .pdot{opacity:1}
+  .pfill{position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-bright));border-radius:100px}
+  .pdot{position:absolute;top:50%;left:0;width:11px;height:11px;border-radius:50%;background:var(--gold-bright);transform:translate(-50%,-50%);opacity:0;transition:opacity .2s ease;box-shadow:0 0 9px rgba(201,162,91,.6)}
+  .pcontrols{display:flex;justify-content:center;gap:10px;margin-top:10px}
+  .pbtn{font-family:var(--sans);font-size:12.5px;color:var(--cream-dim);background:transparent;border:1px solid var(--line-soft);border-radius:100px;padding:7px 18px;cursor:pointer;transition:all .3s ease;font-weight:300}
+  .pbtn:hover{border-color:var(--line);color:var(--gold-bright);background:rgba(201,162,91,0.06)}
+  .pbtn.on{border-color:var(--gold);color:var(--gold-bright);background:rgba(201,162,91,0.14)}
+
+  .movie{padding:2px 0}
+  .movie + .movie{border-top:1px solid var(--line-soft);margin-top:16px;padding-top:14px}
+  .movie-head{font-family:var(--serif-ko);font-size:15px;color:var(--gold-bright);font-weight:700;padding:4px 12px;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .movie-head .yr{font-family:var(--serif-la);font-style:italic;font-size:12.5px;color:var(--muted);font-weight:400;letter-spacing:.02em}
+  .movie-more{display:inline-flex;align-items:center;gap:7px;margin:9px 12px 2px;font-family:var(--sans);font-size:12px;color:var(--gold);background:transparent;border:1px solid var(--line-soft);border-radius:100px;padding:6px 15px;cursor:pointer;transition:border-color .3s,background .3s}
+  .movie-more:hover{border-color:var(--gold-deep);background:rgba(201,162,91,0.06)}
+  .movie-more .mm-arrow{font-size:11px;transition:transform .4s ease}
+  .movie.det-open .movie-more .mm-arrow{transform:rotate(90deg)}
+  .movie-detail{overflow:hidden;max-height:0;transition:max-height .55s cubic-bezier(.3,.8,.2,1);margin:0 12px}
+  .md-inner{padding:13px 15px;margin-top:9px;border-left:2px solid var(--gold-deep);background:rgba(201,162,91,0.045);border-radius:0 10px 10px 0}
+  .md-block + .md-block{margin-top:13px}
+  .md-label{font-family:var(--serif-la);font-style:italic;font-size:12px;letter-spacing:.07em;color:var(--rose);margin-bottom:4px}
+  .md-text{font-family:var(--serif-ko);font-size:13.5px;color:var(--cream-dim);line-height:1.9}
+  .era-meta{font-family:var(--serif-ko);font-size:13px;color:var(--gold);margin-top:8px;letter-spacing:.01em}
+  .era-meta .em-years{font-family:var(--serif-la);font-style:italic;color:var(--rose)}
+  .era-mood{font-family:var(--serif-ko);font-size:14.5px;color:var(--cream-dim);line-height:1.85;margin-top:8px}
+  .tracks-label{font-family:var(--serif-la);font-style:italic;font-size:13px;color:var(--rose);letter-spacing:.06em;margin:4px 12px 8px}
+  .deep-more{display:inline-flex;align-items:center;gap:7px;margin:14px 12px 2px;font-family:var(--sans);font-size:12.5px;color:var(--gold);background:transparent;border:1px solid var(--line-soft);border-radius:100px;padding:7px 17px;cursor:pointer;transition:border-color .3s,background .3s}
+  .deep-more:hover{border-color:var(--gold-deep);background:rgba(201,162,91,0.06)}
+  .deep-more .mm-arrow{font-size:11px;transition:transform .4s ease}
+  .chapter.deep-open .deep-more .mm-arrow{transform:rotate(90deg)}
+  .deep-detail{overflow:hidden;max-height:0;transition:max-height .6s cubic-bezier(.3,.8,.2,1);margin:0 12px}
+  .deep-inner{padding:16px 16px 6px;margin-top:10px;border-left:2px solid var(--gold-deep);background:rgba(201,162,91,0.045);border-radius:0 12px 12px 0}
+  .deep-inner p{font-family:var(--serif-ko);font-size:13.8px;color:var(--cream-dim);line-height:1.95;margin:0 0 12px}
+  .concept{margin:4px 0 18px;padding:14px 8px 8px;background:rgba(20,16,11,.35);border:1px solid var(--line-soft);border-radius:12px}
+  .concept-cap{font-family:var(--serif-ko);font-size:12.5px;color:var(--gold-bright);text-align:center;margin-bottom:6px;letter-spacing:.02em}
+  .concept svg{display:block;width:100%;height:auto}
+  .ask{margin:6px 0 14px;padding:13px 15px;background:rgba(201,143,114,0.07);border-radius:10px}
+  .ask-h{font-family:var(--serif-la);font-style:italic;font-size:12.5px;color:var(--rose);letter-spacing:.05em;margin-bottom:8px}
+  .ask-q{font-family:var(--serif-ko);font-size:13.5px;color:var(--cream);line-height:1.8;padding-left:16px;position:relative;margin-bottom:7px}
+  .ask-q:before{content:"?";position:absolute;left:0;color:var(--gold);font-family:var(--serif-la);font-weight:600}
+  .bridge{display:block;margin:4px 0 8px;padding:15px 17px;border:1px solid var(--gold-deep);border-radius:12px;background:linear-gradient(180deg,rgba(201,162,91,0.1),rgba(201,162,91,0.02));text-decoration:none;transition:background .35s}
+  .bridge:hover{background:rgba(201,162,91,0.16)}
+  .bridge-sub{font-family:var(--serif-ko);font-size:13px;color:var(--cream-dim);line-height:1.8}
+  .bridge-go{font-family:var(--serif-ko);font-size:13.5px;color:var(--gold-bright);font-weight:700;margin-top:10px}
+  .dl-bar{margin:26px auto 0;max-width:560px;text-align:center}
+  .dl-btn{font-family:var(--sans);font-size:13px;color:var(--cream);background:rgba(201,162,91,0.08);border:1px solid var(--line);border-radius:100px;padding:10px 20px;margin:5px;cursor:pointer;transition:background .3s,border-color .3s}
+  .dl-btn:hover{background:rgba(201,162,91,0.16);border-color:var(--gold-deep);color:var(--gold-bright)}
+  .dl-note{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.7}
+  @media print{
+    body{background:#fff!important}
+    body::before,body::after{display:none!important}
+    .dl-bar,.page-turn,.howto-wrap,.memorial-tag,.ch-toggle,.eq,.pseek,.pcontrols,.player,.player-slot,.deep-more,.thumb,.ornament{display:none!important}
+    .wrap{max-width:none;padding:0}
+    .wrap, .wrap *{color:#2a2118!important;text-shadow:none!important;background:transparent!important}
+    .ch-latin,.ch-ko,.foot-quote .big,.ask-h,.bridge-go,.tracks-label,.concept-cap{color:#7a5a1f!important}
+    .tracks{max-height:none!important;overflow:visible!important}
+    .deep-detail{max-height:none!important;overflow:visible!important}
+    .chapter{break-inside:avoid}
+    .deep-inner,.ask,.bridge,.concept{border-color:#c9a25b!important}
+    .t-sub{color:#6a5a40!important}
+    .concept{background:#faf6ee!important}
+    body.cardmode header .epigraph,body.cardmode .intro,body.cardmode .latin-title,body.cardmode .thought,body.cardmode footer{display:none!important}
+    body.cardmode .chapter{page-break-after:always;border:2px solid #c9a25b;border-radius:16px;padding:30px 26px;margin:0}
+    body.cardmode .t-media{display:none}
+  }
+  footer{margin-top:74px;text-align:center}
+  .foot-quote{font-family:var(--serif-ko);font-size:15px;color:var(--cream-dim);line-height:2;max-width:520px;margin:0 auto}
+  .foot-quote .big{display:block;color:var(--gold-bright);font-size:1.05em;margin-bottom:16px}
+  .foot-orn{margin:38px auto 26px}
+  .foot-name{font-family:var(--serif-ko);font-size:15px;color:var(--cream);letter-spacing:.08em}
+  .foot-date{font-family:var(--serif-la);font-size:13px;color:var(--muted);letter-spacing:.18em;margin-top:8px}
+  .credit{font-size:11px;color:rgba(154,138,111,.6);margin-top:34px;letter-spacing:.04em;line-height:1.8}
+  @media(max-width:520px){.ch-head{gap:13px;padding:26px 2px}.ch-num{min-width:42px}.thumb{width:66px;height:44px}.wrap{padding:0 18px 70px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="memorial-tag">고문님의 방식으로, 아이들에게 · 3장</div>
+    <div class="ornament"><span class="l"></span><span class="d"></span><span class="r"></span></div>
+    <div class="latin-title">A Thousand Years of Music</div>
+    <h1>음악의 역사<br>천 년의 소리 여행<span class="small">— 한 줄짜리 노래에서 오늘의 영화음악까지 —</span></h1>
+    <p class="epigraph"><span class="q">&ldquo;</span>한 줄짜리 노래가 어떻게 오늘의 영화음악이 되었을까.<span class="q">&rdquo;</span></p>
+    <p class="intro">고대 그리스·이집트에도 음악은 있었지만 악보가 거의 남지 않아 그 소리는 지금도 수수께끼예요. 그래서 우리가 실제로 들어볼 수 있는 흐름은 중세부터 시작합니다. 음표가 늘고, 화려해졌다가, 정돈되고, 감정으로 차오르는 천 년의 이야기. 이번 시범판에서는 그 첫 정거장으로 ‘고전주의’를 함께 열어 봅니다.</p>
+  </header>
+
+  <section class="thought">
+    <div class="thought-intro">음악의 역사를 관통하는 한 줄기 이야기</div>
+    <div class="thought-card">
+      <p>르네상스는 가사로, 바로크는 계절을(비발디 〈사계〉), 고전주의는 도시의 밤을(보케리니), 낭만주의는 이야기 전체를 ‘음악으로 그렸습니다’. 그 흐름이 오늘날의 영화음악으로 이어졌어요. 이 실 한 가닥을 따라가는 것 자체가, 아이에게 좋은 ‘읽기’ 연습이 됩니다.</p>
+    </div>
+    <div class="thought-by">— 시대는 칼로 자르듯 나뉘지 않고, 물감이 번지듯 섞입니다</div>
+    <div class="howto-wrap"><span class="howto">이건 <b>시범판</b>이에요. 먼저 ‘고전주의’ 한 시대만 열어 두었습니다. 시대를 누르면 들어볼 곡이 나오고, <b>‘더 들려줘’</b>를 누르면 깊은 이야기와 그림이 펼쳐져요.</span></div>
+    <div class="dl-bar">
+      <button class="dl-btn" onclick="printMode('read')">🖨 읽기 자료로 저장 (PDF)</button>
+      <button class="dl-btn" onclick="printMode('card')">🃏 시대 카드로 저장 (PDF)</button>
+      <div class="dl-note">버튼을 누르면 인쇄 창이 떠요. ‘대상’을 <b>PDF로 저장</b>으로 고르면 파일로 받을 수 있어요. (PC에서 가장 잘 됩니다.)</div>
+    </div>
+  </section>
+
+  <main class="chapters" id="chapters"></main>
+
+  <footer>
+    <p class="foot-quote"><span class="big">한 줄짜리 노래에서<br>천 년의 음악이 자랐습니다.</span>그리고 그 끝이, 바로<br>아이가 오늘 듣는 음악과 맞닿아 있어요.</p>
+    <div class="ornament foot-orn"><span class="l"></span><span class="d"></span><span class="r"></span></div>
+    <div class="foot-name">음악의 역사 · 3장 (시범판)</div>
+    <div class="foot-date">마더클럽</div>
+    <div class="maker">아이들의 지적 호기심을 위해, 만든이 <a href="https://www.youtube.com/@pagodream" target="_blank" rel="noopener">파고드림</a></div>
+    <a class="page-turn prev" href="https://pagodream.github.io/moviemusic/">
+      <span class="pt-arrow">←</span>
+      <span class="pt-text"><span class="pt-label">이 전 장</span><span class="pt-title">영화음악 타임머신</span></span>
+    </a>
+  </footer>
+</div>
+
+<script>
+const ALBUM = [
+  {
+    num:"Ⅳ", era:"균형과 우아함", latin:"Classical", ko:"🏛 고전주의", years:"약 1750–1820",
+    composers:"하이든 · 모차르트 · 보케리니",
+    mood:"화려한 장식을 걷어내고, 깔끔하고 균형 잡힌 음악으로.",
+    tracks:[
+      {t:"아이네 클라이네 나흐트무지크", s:"Mozart · ‘밤의 작은 음악’ · 연주 영상", id:"93AR3tzze1s"},
+      {t:"미뉴에트 (현악 5중주 E장조)", s:"Boccherini · 우아한 춤곡", id:"tI1E0HJjP88"},
+      {t:"마드리드 거리의 밤 음악", s:"Boccherini · 〈마스터 앤드 커맨더〉의 그 곡", id:"hzNN1Pl_JlA"}
+    ],
+    concept:'<div class="concept"><div class="concept-cap">대화하는 균형 · 질문하고, 대답하기</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="질문하듯 올라가고 대답하듯 내려오는 두 가락"><line x1="40" y1="150" x2="640" y2="150" stroke="var(--gold-deep)" stroke-width="1" stroke-dasharray="3 7" opacity="0.55"/><path d="M60 150 C 140 150, 175 65, 300 65" fill="none" stroke="var(--gold)" stroke-width="2.6" stroke-linecap="round"/><circle cx="300" cy="65" r="5.5" fill="var(--gold-bright)"/><text x="180" y="44" fill="var(--cream)" font-family="Nanum Myeongjo, serif" font-size="16" text-anchor="middle">질문 ↑</text><path d="M380 65 C 505 65, 545 150, 620 150" fill="none" stroke="var(--rose)" stroke-width="2.6" stroke-linecap="round"/><circle cx="620" cy="150" r="5.5" fill="var(--rose)"/><text x="500" y="44" fill="var(--cream)" font-family="Nanum Myeongjo, serif" font-size="16" text-anchor="middle">대답 ↓</text><text x="340" y="186" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12.5" text-anchor="middle">올라간 질문은, 내려오는 대답으로 차분히 마무리돼요</text></svg></div>',
+    deep:[
+      "바로 앞 시대인 바로크가 금장식 가득한 궁전 같았다면, 고전주의는 그 반대를 원했어요. 장식을 덜어내고, 깔끔하고 균형 잡힌 음악을 만들고 싶어 했죠. 금칠로 빽빽한 방에서, 햇살이 드는 잘 정돈된 방으로 옮겨온 느낌이에요. 모든 게 제자리에 있고, 가락은 또렷해서 누구나 흥얼거릴 수 있어요.",
+      "가장 큰 비밀은 ‘대화하는 균형’이에요. 한 가락이 질문하듯 올라가면, 다른 가락이 대답하듯 차분히 내려와 마무리해요. ‘밥 먹었어?’ 하고 물으면 ‘응, 먹었어’ 하고 답하는 것처럼요.",
+      "이 무렵 음악의 주인공도 바뀌었어요. 피아노는 사실 1700년쯤 바로크 끝자락에 이탈리아의 크리스토포리가 발명했는데, 바로 이 고전주의 시대에 널리 퍼지면서 하프시코드를 밀어내고 음악의 주인공이 됐어요. 하프시코드는 줄을 뜯어 늘 똑같은 크기로 또랑또랑 울렸지만, 피아노는 여리게(피아노)도 세게(포르테)도 칠 수 있어서 음악이 속삭였다 외쳤다 감정을 마음껏 표현하게 됐죠. 그래서 원래 이름이 ‘피아노포르테’였답니다.",
+      "대표 작곡가는 하이든, 모차르트, 그리고 보케리니. 모차르트는 다섯 살에 곡을 만든 신동이었고, 보케리니는 첼로의 달인이라 묵직하고 따뜻한 첼로를 음악의 주인공으로 끌어올렸어요. 평생의 많은 시간을 스페인 마드리드에서 보낸 그는, 그 도시를 너무 사랑한 나머지 〈마드리드 거리의 밤 음악〉을 썼습니다. 저녁을 알리는 종소리, 거리를 거니는 사람들, 새벽에 보초를 교대하는 야경꾼까지, 가사 한 줄 없이 악기 소리만으로 도시의 하룻밤을 통째로 그려내요."
+    ],
+    ask:[
+      "‘밥 먹었어?’ 하고 물으면 ‘응, 먹었어’ 하고 답하듯, 음악도 질문하고 대답할 수 있을까?",
+      "바로크는 화려하고, 고전주의는 깔끔하고 균형 잡혔대. 둘은 무엇이 다를까? (비발디와 모차르트를 번갈아 들어보면 귀에 들어와요.)"
+    ],
+    bridge:{
+      sub:"이 〈마드리드 거리의 밤 음악〉, 어디서 들었더라? 바로 2장 〈마스터 앤드 커맨더〉의 그 곡이에요. 우리의 음악 여행이 영화와 만나는 지점이죠.",
+      label:"2장 · 영화음악 타임머신에서 다시 만나기",
+      href:"https://pagodream.github.io/moviemusic/"
+    }
+  }
+];
+
+const PLAY_SVG = '<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(201,162,91,.92)"/><path d="M10 8.5l6 3.5-6 3.5z" fill="#15110c"/></svg>';
+function thumbHTML(id){return '<div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt=""><span class="play">'+PLAY_SVG+'</span></div>';}
+let activeTrack=null, player=null, apiReady=false, pendingTrack=null, playMode='one', allTracks=[], progTimer=null, repeatOne=false;
+const ytTag=document.createElement('script'); ytTag.src='https://www.youtube.com/iframe_api'; document.head.appendChild(ytTag);
+window.onYouTubeIframeAPIReady=function(){apiReady=true; if(pendingTrack){const t=pendingTrack; pendingTrack=null; createPlayer(t);}};
+
+function buildAlbum(){
+  const root=document.getElementById('chapters');
+  ALBUM.forEach((ch,ci)=>{
+    const sec=document.createElement('section');
+    sec.className='chapter';
+    sec.style.animationDelay=(0.08*ci)+'s';
+    let tracksHTML='';
+    ch.tracks.forEach((sg)=>{
+      tracksHTML+='<div class="track" data-id="'+sg.id+'"'+(sg.start?' data-start="'+sg.start+'"':'')+'>'+
+        '<div class="t-media">'+thumbHTML(sg.id)+'</div>'+
+        '<div class="t-info"><div class="t-title">'+sg.t+'</div><div class="t-sub">'+sg.s+'</div>'+
+        '<div class="eq"><span></span><span></span><span></span><span></span></div></div></div>'+
+        '<div class="player-slot"></div>';
+    });
+    const askHTML=(ch.ask&&ch.ask.length)?'<div class="ask"><div class="ask-h">아이와 함께, 이런 질문을</div>'+ch.ask.map(function(q){return '<div class="ask-q">'+q+'</div>';}).join('')+'</div>':'';
+    const bridgeHTML=ch.bridge?'<a class="bridge" href="'+ch.bridge.href+'"><div class="bridge-sub">'+ch.bridge.sub+'</div><div class="bridge-go">'+ch.bridge.label+' →</div></a>':'';
+    const deepHTML='<button class="deep-more"><span class="mm-arrow">▸</span> 더 들려줘</button>'+
+      '<div class="deep-detail"><div class="deep-inner">'+
+      (ch.concept||'')+
+      ch.deep.map(function(p){return '<p>'+p+'</p>';}).join('')+
+      askHTML+bridgeHTML+
+      '</div></div>';
+    sec.innerHTML='<div class="ch-head"><div class="ch-num">'+ch.num+'</div><div class="ch-body">'+
+      '<div class="ch-era">'+ch.era+'</div>'+
+      '<div class="ch-latin">'+ch.latin+'</div><div class="ch-ko">'+ch.ko+'</div>'+
+      '<div class="era-meta"><span class="em-years">'+ch.years+'</span> · 대표 작곡가 '+ch.composers+'</div>'+
+      '<div class="era-mood">'+ch.mood+'</div>'+
+      '<div class="ch-meta"><span class="ch-count">들어볼 곡 '+ch.tracks.length+'곡</span></div></div>'+
+      '<div class="ch-toggle">+</div></div>'+
+      '<div class="tracks"><div class="tracks-inner"><div class="tracks-label">들어볼 곡</div>'+tracksHTML+deepHTML+'</div></div>';
+    root.appendChild(sec);
+    const head=sec.querySelector('.ch-head');
+    const tracksBox=sec.querySelector('.tracks');
+    head.addEventListener('click',()=>{const o=sec.classList.toggle('open');tracksBox.style.maxHeight=o?(tracksBox.scrollHeight+800)+'px':'0px';});
+    sec.querySelectorAll('.track').forEach(t=>t.addEventListener('click',()=>onTrackClick(t)));
+    const dbtn=sec.querySelector('.deep-more'), ddet=sec.querySelector('.deep-detail');
+    dbtn.addEventListener('click',(ev)=>{ev.stopPropagation();
+      const o=sec.classList.toggle('deep-open');
+      ddet.style.maxHeight=o?(ddet.scrollHeight+60)+'px':'0px';
+      setTimeout(()=>refit(tracksBox),60);
+    });
+  });
+  allTracks=Array.from(document.querySelectorAll('.track'));
+}
+function setMode(m){playMode=m;document.querySelectorAll('.mode-btn').forEach(b=>b.classList.toggle('on',b.getAttribute('data-mode')===m));}
+function onTrackClick(t){ if(activeTrack===t){stopActive();} else {selectTrack(t);} }
+function slotOf(t){ return t.nextElementSibling; }
+function clearSlot(t){ const s=t&&slotOf(t); if(s) s.innerHTML=''; }
+function selectTrack(trackEl){
+  const chap=trackEl.closest('.chapter');
+  if(!chap.classList.contains('open'))chap.classList.add('open');
+  if(player){try{player.destroy();}catch(e){}player=null;}
+  stopProgress();
+  if(activeTrack&&activeTrack!==trackEl){activeTrack.classList.remove('active');clearSlot(activeTrack);}
+  trackEl.classList.add('active');activeTrack=trackEl;
+  const slot=slotOf(trackEl);
+  slot.innerHTML='<div class="player"><div class="frame"><div class="yt-host"></div></div>'+
+    '<div class="pseek"><span class="ptime ptcur">0:00</span><div class="pbar"><div class="pfill"></div><div class="pdot"></div></div><span class="ptime ptdur">0:00</span></div>'+
+    '<div class="pcontrols"><button class="pbtn pprev">◀ 이전 곡</button><button class="pbtn pplay">⏸ 일시정지</button><button class="pbtn pnext">다음 곡 ▶</button><button class="pbtn prepeat'+(repeatOne?' on':'')+'">🔁 이 곡 반복</button></div></div>';
+  slot.querySelector('.pprev').addEventListener('click',function(ev){ev.stopPropagation();goRelative(-1);});
+  slot.querySelector('.pnext').addEventListener('click',function(ev){ev.stopPropagation();goRelative(1);});
+  slot.querySelector('.pplay').addEventListener('click',function(ev){ev.stopPropagation();togglePlay();});
+  const rb=slot.querySelector('.prepeat');
+  rb.addEventListener('click',function(ev){ev.stopPropagation();repeatOne=!repeatOne;rb.classList.toggle('on',repeatOne);});
+  const bar=slot.querySelector('.pbar');
+  bar.addEventListener('click',function(ev){ev.stopPropagation();
+    if(!player||!player.getDuration)return;
+    const r=bar.getBoundingClientRect();
+    const cx=ev.touches?ev.touches[0].clientX:ev.clientX;
+    const ratio=Math.max(0,Math.min(1,(cx-r.left)/r.width));
+    const d=player.getDuration()||0; if(d){player.seekTo(d*ratio,true);updateProgress();}
+  });
+  if(apiReady)createPlayer(trackEl); else pendingTrack=trackEl;
+  const tracksBox=chap.querySelector('.tracks');
+  setTimeout(()=>refit(tracksBox),60);
+}
+function createPlayer(trackEl){
+  const slot=slotOf(trackEl); const host=slot&&slot.querySelector('.yt-host');
+  if(!host||typeof YT==='undefined'||!YT.Player)return;
+  const id=trackEl.getAttribute('data-id');
+  const start=parseInt(trackEl.getAttribute('data-start')||'0',10);
+  player=new YT.Player(host,{host:'https://www.youtube-nocookie.com',videoId:id,
+    playerVars:{autoplay:1,rel:0,modestbranding:1,playsinline:1,start:start||0},
+    events:{onReady:function(e){try{e.target.playVideo();}catch(x){}startProgress();},onStateChange:onState,onError:onPlayerError}});
+}
+function listFor(){ return playMode==='folder'?Array.from(activeTrack.closest('.tracks-inner').querySelectorAll('.track')):allTracks; }
+function goRelative(delta){
+  if(!activeTrack)return;
+  const list=listFor(); const idx=list.indexOf(activeTrack); if(idx<0)return;
+  const next=list[(idx+delta+list.length)%list.length];
+  if(next){selectTrack(next);setTimeout(()=>next.scrollIntoView({behavior:'smooth',block:'center'}),160);}
+}
+function onState(e){ updatePlayBtn(e.data); if(e.data===YT.PlayerState.ENDED){ if(repeatOne&&player){try{player.seekTo(0,true);player.playVideo();}catch(x){}return;} advance(); } }
+function onPlayerError(e){ if(e&&(e.data===101||e.data===150||e.data===100||e.data===2)) showBlockedFallback(); }
+function showBlockedFallback(){
+  if(!activeTrack)return; stopProgress();
+  const slot=slotOf(activeTrack); if(!slot)return;
+  const frame=slot.querySelector('.frame'); if(!frame)return;
+  const id=activeTrack.getAttribute('data-id');
+  frame.innerHTML='<div class="blocked"><div class="blocked-msg">이 곡은 외부 사이트 재생이 막혀 있어요.<br>유튜브에서 바로 들으실 수 있습니다.</div><a class="blocked-link" href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">▶ YouTube에서 듣기</a></div>';
+}
+function advance(){ if(playMode==='one'||!activeTrack)return; goRelative(1); }
+function stopActive(){
+  stopProgress();
+  if(player){try{player.destroy();}catch(e){}player=null;}
+  if(activeTrack){activeTrack.classList.remove('active');clearSlot(activeTrack);activeTrack=null;}
+}
+function fmtTime(s){s=Math.max(0,Math.floor(s||0));const m=Math.floor(s/60);const r=s%60;return m+':'+(r<10?'0':'')+r;}
+function progEls(){if(!activeTrack)return null;const slot=slotOf(activeTrack);if(!slot)return null;return{fill:slot.querySelector('.pfill'),dot:slot.querySelector('.pdot'),cur:slot.querySelector('.ptcur'),dur:slot.querySelector('.ptdur'),play:slot.querySelector('.pplay')};}
+function updateProgress(){const el=progEls();if(!el||!player||!player.getDuration)return;const d=player.getDuration()||0;const c=player.getCurrentTime?player.getCurrentTime():0;const pct=d?(c/d*100):0;if(el.fill)el.fill.style.width=pct+'%';if(el.dot)el.dot.style.left=pct+'%';if(el.cur)el.cur.textContent=fmtTime(c);if(el.dur)el.dur.textContent=fmtTime(d);}
+function startProgress(){stopProgress();progTimer=setInterval(updateProgress,500);updateProgress();}
+function stopProgress(){if(progTimer){clearInterval(progTimer);progTimer=null;}}
+function togglePlay(){if(!player||!player.getPlayerState)return;const st=player.getPlayerState();if(st===YT.PlayerState.PLAYING){player.pauseVideo();}else{player.playVideo();}}
+function updatePlayBtn(state){const el=progEls();if(!el||!el.play)return;el.play.textContent=(state===YT.PlayerState.PLAYING)?'⏸ 일시정지':'▶ 재생';}
+function refit(tracksBox){if(tracksBox.closest('.chapter').classList.contains('open'))tracksBox.style.maxHeight=(tracksBox.scrollHeight+800)+'px';}
+function printMode(mode){
+  document.body.classList.add(mode==='card'?'cardmode':'readmode');
+  document.querySelectorAll('.chapter').forEach(function(c){c.classList.add('open','deep-open');});
+  setTimeout(function(){ window.print(); },350);
+}
+window.addEventListener('afterprint',function(){document.body.classList.remove('cardmode','readmode');});
+buildAlbum();
+window.addEventListener('load',()=>{const f=document.querySelector('.chapter');if(f){setTimeout(()=>f.querySelector('.ch-head').click(),700);}});
+</script>
+</body>
+</html>
