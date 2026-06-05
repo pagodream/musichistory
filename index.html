@@ -267,6 +267,16 @@
   .rib-node:hover .rib-era{color:var(--gold-bright)}
   .rib-node.lit .rib-dot{background:var(--gold-bright);border-color:var(--gold-bright);box-shadow:0 0 9px rgba(226,189,118,.55)}
   .ov-story{font-family:var(--serif-ko);font-size:13.5px;color:var(--cream-dim);line-height:2;text-align:center;margin:14px 6px 0}
+  .ov-video{margin:4px 0 22px}
+  .ov-video-label{font-family:var(--serif-ko);font-size:14px;color:var(--gold-bright);text-align:center;margin-bottom:10px}
+  .ov-video-frame{position:relative;width:100%;aspect-ratio:16/9;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#000}
+  .ov-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .ov-video-play{position:absolute;inset:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:radial-gradient(circle at center,rgba(40,30,18,.45),rgba(10,8,5,.85));border:0;cursor:pointer}
+  .ov-play-ico{display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;border:2px solid var(--gold);color:var(--gold-bright);font-size:24px;padding-left:5px;transition:all .25s}
+  .ov-video-play:hover .ov-play-ico{background:var(--gold);color:var(--ink);box-shadow:0 0 22px rgba(201,162,91,.6)}
+  .ov-play-txt{font-family:var(--serif-ko);font-size:14px;color:var(--cream-dim)}
+  .ov-video-sub{font-family:var(--sans);font-size:11.5px;color:var(--muted);text-align:center;margin-top:9px;line-height:1.6}
+  .ov-video-sub a{color:var(--gold-deep);text-decoration:none;border-bottom:1px solid var(--line)}
   footer{margin-top:74px;text-align:center}
   .foot-quote{font-family:var(--serif-ko);font-size:15px;color:var(--cream-dim);line-height:2;max-width:520px;margin:0 auto}
   .foot-quote .big{display:block;color:var(--gold-bright);font-size:1.05em;margin-bottom:16px}
@@ -285,7 +295,7 @@
     <div class="latin-title">A Thousand Years of Music</div>
     <h1>음악의 역사<br>천 년의 소리 여행<span class="small">— 한 줄짜리 노래에서 오늘의 영화음악까지 —</span></h1>
     <p class="epigraph"><span class="q">&ldquo;</span>한 줄짜리 노래가 어떻게 오늘의 영화음악이 되었을까.<span class="q">&rdquo;</span></p>
-    <p class="intro">고대 그리스·이집트에도 음악은 있었지만 악보가 거의 남지 않아 그 소리는 지금도 수수께끼예요. 그래서 우리가 실제로 들어볼 수 있는 흐름은 중세부터 시작합니다. 한 줄짜리 노래가 여러 가락으로 어우러지고, 화려해졌다가, 깔끔해지고, 감정으로 차오르고, 마침내 갈래로 나뉘어 오늘의 영화음악까지 — 천 년의 이야기를 시대별로 함께 열어 봅니다.</p>
+    <p class="intro">음악은 글자보다도 먼저, 사람과 함께 태어났어요. 고대에는 악보가 거의 남지 않아 그 소리를 직접 들을 순 없지만, 음악이 어떻게 시작됐는지부터 이야기를 엽니다. 한 줄짜리 노래가 여러 가락으로 어우러지고, 화려해졌다가, 깔끔해지고, 감정으로 차오르고, 마침내 갈래로 나뉘어 오늘의 영화음악까지 — 음악사의 흐름을 시대별로 함께 따라가 봅니다.</p>
   </header>
 
   <section class="thought">
@@ -304,8 +314,13 @@
 
   <section class="overview">
   <div class="ov-title">천 년 음악 여행 · 한눈에 보기</div>
-  <div class="ribbon"><div class="rib-line"></div><button class="rib-node" data-target="era-1"><span class="rib-dot"></span><span class="rib-num">Ⅰ</span><span class="rib-era">중세</span><span class="rib-key">한 줄</span></button><button class="rib-node" data-target="era-2"><span class="rib-dot"></span><span class="rib-num">Ⅱ</span><span class="rib-era">르네상스</span><span class="rib-key">어우러짐</span></button><button class="rib-node" data-target="era-3"><span class="rib-dot"></span><span class="rib-num">Ⅲ</span><span class="rib-era">바로크</span><span class="rib-key">화려</span></button><button class="rib-node" data-target="era-4"><span class="rib-dot"></span><span class="rib-num">Ⅳ</span><span class="rib-era">고전</span><span class="rib-key">균형</span></button><button class="rib-node" data-target="era-5"><span class="rib-dot"></span><span class="rib-num">Ⅴ</span><span class="rib-era">낭만</span><span class="rib-key">감정</span></button><button class="rib-node" data-target="era-6"><span class="rib-dot"></span><span class="rib-num">Ⅵ</span><span class="rib-era">근현대</span><span class="rib-key">자유</span></button></div>
-  <p class="ov-story">한 줄짜리 노래에서 시작해, 여러 가락이 어우러지고, 화려해졌다가, 깔끔하게 정돈되고, 감정으로 차오르고, 마침내 규칙을 깨며 여러 갈래로 — 오늘의 영화음악(2장)까지 이어집니다. 궁금한 시대를 눌러 바로 떠나 보세요.</p>
+  <div class="ov-video">
+    <div class="ov-video-label">먼저, 전체를 한 영상으로 — 클래식 음악사 총정리</div>
+    <div class="ov-video-frame" id="ovVideo"><button class="ov-video-play" onclick="playOverview()"><span class="ov-play-ico">▶</span><span class="ov-play-txt">전체 흐름 영상 재생</span></button></div>
+    <div class="ov-video-sub">2세기부터 1925년까지, 클래식 음악의 큰 흐름을 한 번에 · 유어메이트 &nbsp;·&nbsp; <a href="https://youtu.be/kKfpfUVN4SI" target="_blank" rel="noopener">유튜브에서 보기</a></div>
+  </div>
+  <div class="ribbon"><div class="rib-line"></div><button class="rib-node" data-target="era-1"><span class="rib-dot"></span><span class="rib-num">Ⅰ</span><span class="rib-era">고대</span><span class="rib-key">시작</span></button><button class="rib-node" data-target="era-2"><span class="rib-dot"></span><span class="rib-num">Ⅱ</span><span class="rib-era">중세</span><span class="rib-key">한 줄</span></button><button class="rib-node" data-target="era-3"><span class="rib-dot"></span><span class="rib-num">Ⅲ</span><span class="rib-era">르네상스</span><span class="rib-key">어우러짐</span></button><button class="rib-node" data-target="era-4"><span class="rib-dot"></span><span class="rib-num">Ⅳ</span><span class="rib-era">바로크</span><span class="rib-key">화려</span></button><button class="rib-node" data-target="era-5"><span class="rib-dot"></span><span class="rib-num">Ⅴ</span><span class="rib-era">고전</span><span class="rib-key">균형</span></button><button class="rib-node" data-target="era-6"><span class="rib-dot"></span><span class="rib-num">Ⅵ</span><span class="rib-era">낭만</span><span class="rib-key">감정</span></button><button class="rib-node" data-target="era-7"><span class="rib-dot"></span><span class="rib-num">Ⅶ</span><span class="rib-era">민족주의</span><span class="rib-key">우리 색</span></button><button class="rib-node" data-target="era-8"><span class="rib-dot"></span><span class="rib-num">Ⅷ</span><span class="rib-era">근현대</span><span class="rib-key">자유</span></button></div>
+  <p class="ov-story">음악이 사람과 함께 태어나, 한 줄짜리 노래가 여러 가락으로 어우러지고, 화려해졌다가, 깔끔하게 정돈되고, 감정으로 차오르고, 저마다의 색깔을 뽐내다, 마침내 규칙을 깨며 여러 갈래로 — 오늘의 영화음악(2장)까지 이어집니다. 궁금한 시대를 눌러 바로 떠나 보세요.</p>
 </section>
 
   <main class="chapters" id="chapters"></main>
@@ -325,50 +340,104 @@
 
 <script>
 const ALBUM = [
-  {num:"Ⅰ", era:"한 줄기 노래", latin:"Medieval", ko:"⛪ 중세", years:"약 500–1400", composers:"이름 없는 수도사들 · 그레고리오 성가", mood:"악기도 화음도 거의 없이, 단 하나의 가락으로.",
+  {num:"Ⅰ", era:"음악의 시작", latin:"Antiquity", ko:"🏺 고대", years:"선사 – 약 500", composers:"이름 없는 사람들 · 고대 그리스·로마", mood:"악보는 거의 남지 않았지만, 음악은 사람과 함께 시작됐다.",
    cards:[
+     {type:"video", icon:"📜", cat:"시대 배경·흐름", id:"DOBGUcxz0LE", sub:"음악의 기원 · 유어메이트",
+      q:"사람은 언제, 왜 처음 노래하고 악기를 연주하기 시작했을까요? 음악은 도대체 어디에서 시작됐을까요? 영상에서 찾아보세요.",
+      joy:"✨ 어디서 시작됐을까요?",
+      reveal:"<p>음악은 글자보다도 먼저 시작됐어요. 사람들은 기쁠 때, 슬플 때, 함께 일하고 기도할 때 자연스럽게 소리를 냈죠. 음악의 뿌리는 거창한 게 아니라 바로 사람의 마음과 삶이에요.</p>"},
+     {type:"video", icon:"🎬", cat:"그 시대 음악", id:"j5UnwcYK5pA", sub:"고대시대 음악의 특징 · 유어메이트",
+      q:"고대 그리스·로마 사람들의 음악은 어떤 모습이었을까요? 지금 우리가 듣는 음악과 무엇이 달랐을까요?",
+      joy:"✨ 달랐나요?",
+      reveal:"<p>고대 음악은 주로 한 가닥 가락(단선율)이었고, 시(노랫말)와 떼려야 뗄 수 없이 붙어 있었어요. 리라·아울로스 같은 단순한 악기로 연주했고요. 화음을 쌓기보다 ‘말과 가락’이 하나였던 시대예요.</p>"},
+     {type:"video", icon:"📜", cat:"역사 이야기", id:"DoAI4wQAiDY", sub:"고대시대에 영향을 준 인물 · 유어메이트",
+      q:"음악 속에 ‘수학’이 숨어 있다고 생각한 사람이 있었대요. 누구이고, 무엇을 발견했을까요?",
+      joy:"✨ 누구일까요?",
+      reveal:"<p>대표적인 인물이 피타고라스예요. 줄의 길이를 정확히 반으로 줄이면 한 옥타브 높은 소리가 난다는 걸 발견했죠. ‘아름다운 소리에는 수와 비율의 규칙이 있다’는 생각이 여기서 시작됐답니다.</p>"},
+     {type:"video", icon:"🎵", cat:"그 시대 음악", id:"Cq1NUSYO7YQ", sub:"고대시대의 음악 · 유어메이트",
+      q:"악보가 거의 남지 않은 고대. 그래도 우리가 들어볼 수 있는 고대 음악의 ‘조각’이 남아 있을까요? 영상에서 만나보세요.",
+      joy:"✨ 들렸나요?",
+      reveal:"<p>아주 일부지만, 돌이나 파피루스에 적힌 기록 덕분에 되살아난 곡이 있어요(예: ‘세이킬로스의 노래’). 하지만 대부분은 영영 사라졌죠. 그래서 ‘적어두기(악보)’가 얼마나 소중한지 — 다음 중세에서 본격적으로 이어집니다.</p>"},
+     {type:"quiz", icon:"❓", cat:"스무고개", q:"고대에도 분명 멋진 음악이 있었을 텐데, 우리는 왜 그 소리를 ‘직접’ 들을 수 없을까요?",
+      hints:["음악은 ‘소리’예요. 소리는 시간이 지나면 어떻게 될까요?","녹음기도 없던 까마득한 옛날이에요.","연주가 끝나면 그 소리는?","남기려면 무언가에 ‘적어둬야’ 하는데...","고대에는 그 ‘적는 방법(악보)’이 거의 없었어요."], write:true,
+      joy:"🎉 바로 그거예요!", reveal:'<div class="concept"><div class="concept-cap">사라지는 소리 · 기록이 없으면</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><polyline points="40,100 70,55 100,145 130,68 160,132 190,82 220,118 250,90 280,110 310,98 340,103 380,100 460,100" fill="none" stroke="var(--gold)" stroke-width="2.4"/><text x="210" y="170" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12.5" text-anchor="middle">소리는 울리다 잦아들어… 사라져요</text><path d="M474 100 L548 100 M540 92 L548 100 L540 108" fill="none" stroke="var(--rose)" stroke-width="2"/><text x="600" y="92" fill="var(--rose)" font-family="Nanum Myeongjo, serif" font-size="26" text-anchor="middle">?</text><text x="600" y="150" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="11.5" text-anchor="middle">남기려면 →<tspan x="600" dy="16">적어두기(악보)</tspan></text></svg></div><p>소리는 연주가 끝나면 사라져요. 녹음기도, 제대로 된 악보도 없던 고대에는 음악을 ‘남길’ 방법이 거의 없었죠. 그래서 고대의 소리는 대부분 수수께끼로 남았어요. 바로 이 ‘적어두기’의 발명이 다음 시대(중세)의 가장 큰 사건이랍니다.</p>'}
+   ]},
+  {num:"Ⅱ", era:"한 줄기 노래", latin:"Medieval", ko:"⛪ 중세", years:"약 500–1400", composers:"이름 없는 수도사들 · 그레고리오 성가", mood:"악기도 화음도 거의 없이, 단 하나의 가락으로.",
+   cards:[
+     {type:"video", icon:"📜", cat:"시대 배경·흐름", id:"2NWBKh9FnWI", sub:"중세시대 배경 및 흐름 · 유어메이트",
+      q:"성과 수도원, 기사들의 시대. 중세는 어떤 세상이었고, 그 속에서 음악은 어떤 자리에 있었을까요? 영상으로 시대의 흐름을 따라가 보세요.",
+      joy:"✨ 그려지나요?",
+      reveal:"<p>중세는 교회가 세상의 중심이던 시대예요. 그래서 음악도 대부분 성당과 수도원에서, 신을 향한 노래로 울렸죠. 이 배경을 알면 왜 중세 음악이 그렇게 경건하고 단순한지 자연스럽게 이해돼요.</p>"},
      {type:"music", icon:"🎵", cat:"들어볼 곡", id:"aah_ITLw3R8", sub:"그레고리오 성가 · 키리에",
       q:"마이크도 녹음기도 없던 천 년 전, 수도원에서 부르던 이 노래가 어떻게 지금까지 살아남았을까요? 한 가닥 목소리에 귀 기울여 보세요.",
       joy:"✨ 들어봤나요?",
       reveal:"<p>비결은 ‘악보’예요. 처음엔 가사 위에 점과 기호(네우마)로 높낮이를 대충 표시하다가, 줄(선)을 그어 음을 정확히 적게 됐어요. 그렇게 적어두니 한 번도 못 들어본 사람도 노래를 되살릴 수 있었죠. 중세 음악은 화음 없이 단 하나의 가락(단선율)으로 흘러요.</p>"},
-     {type:"video", icon:"📜", cat:"역사 이야기", id:"Zh4bg_JMxAk", sub:"중세 여행 · Smile and Learn (영어)",
-      q:"성·기사·수도원의 시대. 그 시절엔 책 한 권도 손으로 베껴 썼대요. 음악은 주로 어디에서 울려 퍼졌을까요? 영상으로 그 시대를 둘러보세요.",
-      joy:"✨ 그려지나요?",
-      reveal:"<p>대부분의 음악은 성당과 수도원에서 울렸어요. 글도 음악도 수도사들이 손으로 베껴 전했죠. 그래서 노래 하나를 정확히 남기는 일이 정말 귀했답니다.</p>"},
+     {type:"video", icon:"🎬", cat:"그 시대 음악", id:"Ds4tM9ZoqSc", sub:"중세시대 음악 · 유어메이트",
+      q:"중세 음악만의 특징은 무엇일까요? 화음도 악기도 거의 없던 시절, 사람들이 어떻게 노래했는지 영상에서 확인해 보세요.",
+      joy:"✨ 알겠어요?",
+      reveal:"<p>중세 음악은 화음 없이 한 가닥 가락으로 흐르는 ‘단선율’(그레고리오 성가)에서 출발해, 차차 여러 소리가 겹치는 ‘다성음악’의 싹이 트는 시기예요. 그리고 이 모든 걸 가능하게 한 게 바로 ‘악보의 탄생’이죠.</p>"},
      {type:"quiz", icon:"❓", cat:"스무고개", q:"노래를 ‘적어두는’ 방법이 없다면 무슨 일이 생길까요? 힌트를 하나씩 열어 생각해 보세요.",
       hints:["입에서 입으로만 전한다고 생각해 보세요.","사람마다 조금씩 다르게 기억하면?","백 년쯤 지나면 처음 노래와 같을까요?","그래서 누군가 노래를 ‘그려서’ 남기고 싶었어요.","줄을 긋고 그 위에 점을 찍으면, 음이 얼마나 높은지 보이겠죠?"], write:true,
       joy:"🎉 바로 그거예요!", reveal:'<div class="concept"><div class="concept-cap">악보의 탄생 · 소리를 ‘적어두기’</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><text x="160" y="26" fill="var(--cream)" font-family="Nanum Myeongjo, serif" font-size="14" text-anchor="middle">네우마 · 점과 기호</text><line x1="40" y1="125" x2="300" y2="125" stroke="var(--gold-deep)" stroke-width="1" stroke-dasharray="3 7" opacity="0.6"/><circle cx="70" cy="95" r="4" fill="var(--gold)"/><circle cx="112" cy="80" r="4" fill="var(--gold)"/><circle cx="154" cy="105" r="4" fill="var(--gold)"/><circle cx="196" cy="78" r="4" fill="var(--gold)"/><circle cx="238" cy="98" r="4" fill="var(--gold)"/><circle cx="280" cy="110" r="4" fill="var(--gold)"/><text x="170" y="160" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12" text-anchor="middle">높낮이가 흐릿해요</text><path d="M314 100 L356 100 M348 92 L356 100 L348 108" fill="none" stroke="var(--rose)" stroke-width="2"/><text x="540" y="26" fill="var(--cream)" font-family="Nanum Myeongjo, serif" font-size="14" text-anchor="middle">4선보 · 음을 정확히</text><line x1="380" y1="72" x2="650" y2="72" stroke="var(--gold-deep)" stroke-width="1"/><line x1="380" y1="92" x2="650" y2="92" stroke="var(--gold-deep)" stroke-width="1"/><line x1="380" y1="112" x2="650" y2="112" stroke="var(--gold-deep)" stroke-width="1"/><line x1="380" y1="132" x2="650" y2="132" stroke="var(--gold-deep)" stroke-width="1"/><circle cx="425" cy="112" r="5" fill="var(--gold-bright)"/><circle cx="475" cy="92" r="5" fill="var(--gold-bright)"/><circle cx="525" cy="102" r="5" fill="var(--gold-bright)"/><circle cx="575" cy="72" r="5" fill="var(--gold-bright)"/><circle cx="620" cy="92" r="5" fill="var(--gold-bright)"/><text x="515" y="162" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12" text-anchor="middle">선 위에 적으니 또렷해요</text></svg></div><p>적어두지 않으면 노래는 조금씩 변하다 사라져요. 그래서 중세 사람들은 점(네우마)으로, 다음엔 4개의 선 위에 음을 적었어요. ‘도레미’라는 이름도 이 무렵 수도사 귀도 다레초가 찬송가 가사의 첫 글자에서 따와 만들었답니다.</p>'}
    ]},
-  {num:"Ⅱ", era:"여러 가락이 어우러지다", latin:"Renaissance", ko:"🎼 르네상스", years:"약 1400–1600", composers:"팔레스트리나 · 조스캥", mood:"여러 목소리가 동시에 흐르며 하나로 어우러지다.",
+  {num:"Ⅲ", era:"여러 가락이 어우러지다", latin:"Renaissance", ko:"🎼 르네상스", years:"약 1400–1600", composers:"팔레스트리나 · 조스캥", mood:"여러 목소리가 동시에 흐르며 하나로 어우러지다.",
    cards:[
+     {type:"video", icon:"📜", cat:"시대 배경·흐름", id:"Pko7tIgEndM", sub:"르네상스 시대배경 및 흐름 · 유어메이트",
+      q:"‘르네상스’는 ‘다시 태어남’이라는 뜻이래요. 무엇이 다시 태어났고, 그 변화가 음악에는 어떻게 스며들었을까요? 영상으로 시대 흐름을 따라가 보세요.",
+      joy:"✨ 그려지나요?",
+      reveal:"<p>르네상스는 신 중심이던 세상에서 ‘인간’과 그 감정에 다시 눈뜬 시대예요. 미술이 원근법으로 사실적이 되고 건축이 균형을 찾았듯, 음악도 사람의 목소리와 마음을 풍부하게 담기 시작했죠. (마침 인쇄술 덕분에 악보도 멀리까지 퍼졌고요.)</p>"},
      {type:"music", icon:"🎵", cat:"들어볼 곡", id:"_oUqsGm9u94", sub:"팔레스트리나 · 〈Sicut cervus〉 (시스티나 합창단)",
       q:"여러 사람이 서로 다른 가락을 ‘동시에’ 부르는데, 왜 엉키지 않고 아름답게 들릴까요? 목소리들이 어떻게 겹치는지 들어 보세요.",
       joy:"✨ 들렸나요?",
       reveal:"<p>이게 ‘다성음악’이에요. 여러 가락이 각자 흐르지만, 서로 규칙을 지키며 만나고 비켜가요. 한 줄이던 중세 노래가 이제 여러 줄이 어우러지는 음악으로 자랐어요.</p>"},
-     {type:"video", icon:"📜", cat:"역사 이야기", id:"DJpJL2YzCOc", sub:"구텐베르크 인쇄술 · StoryBots (영어)",
-      q:"예전엔 악보도 책도 한 장 한 장 손으로 베꼈어요. 무엇이 음악과 책을 ‘복사’할 수 있게 만들었을까요? 영상에서 찾아보세요.",
-      joy:"✨ 찾았다!",
-      reveal:"<p>바로 ‘인쇄술’이에요. 1501년에는 악보도 인쇄되기 시작했죠. 덕분에 같은 곡을 멀리까지 똑같이 나눠 가질 수 있게 됐어요. 음악이 수도원 밖으로 퍼져 나간 거예요.</p>"},
+     {type:"video", icon:"🎬", cat:"그 시대 음악", id:"hqvmvji1sL0", sub:"르네상스 음악 · 유어메이트",
+      q:"중세의 한 줄짜리 노래는 르네상스에서 어떻게 달라졌을까요? 여러 목소리가 어떻게 어우러지는지 영상에서 확인해 보세요.",
+      joy:"✨ 알겠어요?",
+      reveal:"<p>가장 큰 변화는 ‘다성음악’이에요. 여러 성부(목소리)가 서로 대화하듯 어우러지죠. 또 교회음악 못지않게 ‘세속음악’(교회 밖 노래)도 활짝 피기 시작했답니다.</p>"},
+     {type:"video", icon:"🎬", cat:"음악 장르", id:"0GbEFGZyDRA", sub:"르네상스 음악 장르 · 유어메이트",
+      q:"르네상스 사람들은 어떤 종류의 노래를 즐겼을까요? 교회에서 부르는 노래 말고도, 어떤 음악이 유행했을까요?",
+      joy:"✨ 새롭죠?",
+      reveal:"<p>미사·모테트 같은 교회음악과 함께, 마드리갈·샹송 같은 ‘세속 노래’가 인기였어요. 사랑·자연·일상을 노랫말에 담고, 음(가락)으로 그 뜻을 그려내곤 했죠.</p>"},
+     {type:"video", icon:"📜", cat:"대표 작곡가", id:"sT8OXIlNP-s", sub:"르네상스 대표 작곡가와 주요 작품 · 유어메이트",
+      q:"르네상스 다성음악을 가장 맑고 아름답게 완성한 작곡가는 누구였을까요? 위에서 들어본 그 곡의 주인공이기도 해요.",
+      joy:"✨ 맞혔나요?",
+      reveal:"<p>대표 주자가 팔레스트리나예요. 여러 목소리가 복잡하게 얽혀도 가사가 또렷이 들리고 더없이 맑게 어우러지도록 다듬었죠. 위에서 들은 〈Sicut cervus〉가 바로 그의 곡이랍니다.</p>"},
      {type:"quiz", icon:"❓", cat:"스무고개", q:"한 사람이 ‘도-미-솔’을 부를 때, 옆 사람이 다른 음을 같이 부르면 어떻게 될까요?",
       hints:["혼자 부르면 가락이 ‘한 줄’이죠.","둘이 다른 음을 함께 내면?","어떤 음끼리는 같이 울리면 ‘예쁘게’ 어울려요.","여러 줄이 동시에 흐르는 걸 한 단어로 부른대요.","‘여러(多) 소리(聲)’ — 한자 뜻 그대로예요."], write:true,
       joy:"🎉 맞았어요!", reveal:'<div class="concept"><div class="concept-cap">다성음악 · 여러 목소리가 함께</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><path d="M40 70 C 140 40, 240 100, 340 70 S 540 40, 640 70" fill="none" stroke="var(--gold)" stroke-width="2.4"/><path d="M40 105 C 140 135, 240 75, 340 105 S 540 135, 640 105" fill="none" stroke="var(--rose)" stroke-width="2.4"/><path d="M40 140 C 160 110, 260 170, 360 140 S 540 110, 640 140" fill="none" stroke="var(--cream-dim)" stroke-width="2.4"/><text x="340" y="190" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12.5" text-anchor="middle">서로 다른 가락이 동시에, 그러나 어우러지게</text></svg></div><p>여러 가락이 동시에 어우러지는 걸 ‘다성음악’이라고 해요. 혼자선 한 줄이지만, 여럿이 규칙을 지키며 겹치면 풍성한 화음이 되죠. 르네상스는 바로 이 ‘함께 부르기’가 활짝 핀 시대예요.</p>'}
    ]},
-  {num:"Ⅲ", era:"화려하게, 계절까지 그리다", latin:"Baroque", ko:"👑 바로크", years:"약 1600–1750", composers:"비발디 · 바흐 · 헨델", mood:"장식이 화려하고, 낮은음이 끊임없이 받쳐주는 음악.",
+  {num:"Ⅳ", era:"화려하게, 계절까지 그리다", latin:"Baroque", ko:"👑 바로크", years:"약 1600–1750", composers:"비발디 · 바흐 · 헨델", mood:"장식이 화려하고, 낮은음이 끊임없이 받쳐주는 음악.",
    cards:[
+     {type:"video", icon:"📜", cat:"시대 배경·흐름", id:"SesFO_u_BXU", sub:"바로크 시대 배경·특징 · 유어메이트",
+      q:"비발디·바흐가 살던 바로크는 어떤 세상이었을까요? 왜 이 시대의 음악과 예술은 그토록 화려해졌을까요? 영상으로 시대 배경을 따라가 보세요.",
+      joy:"✨ 그려지나요?",
+      reveal:"<p>바로크는 왕과 교회의 힘이 세고, 궁전과 성당이 화려하게 꾸며지던 시대예요. 그 웅장하고 장식적인 분위기가 음악에도 그대로 스며, 화려하고 극적인 소리로 이어졌죠.</p>"},
      {type:"music", icon:"🎵", cat:"들어볼 곡", id:"3LiztfE1X7E", sub:"비발디 · 〈사계〉 중 ‘봄’ (Voices of Music)",
       q:"비발디는 가사도 없이 어떻게 악기 소리만으로 ‘새’와 ‘천둥’을 표현했을까요? 〈봄〉을 들으며 새소리와 천둥을 찾아보세요.",
       joy:"✨ 새와 천둥, 찾았나요?",
       reveal:"<p>바이올린이 빠르게 지저귀면 새, 낮은 현이 우르릉대면 천둥이에요. 가사 없이 ‘소리로 그림을 그린’ 거죠(표제음악). 우리 여행을 관통하는 그 실 — ‘음악으로 그림 그리기’ — 이 이 시대에 활짝 폈어요.</p>"},
-     {type:"video", icon:"🎬", cat:"음악 이야기", id:"V8AZdq_lJYc", sub:"바흐 이야기 · Listen and Learn (영어)",
-      q:"바로크 음악은 왜 이렇게 ‘화려하게’ 꾸며져 있을까요? 그 정점에 있던 작곡가 바흐의 이야기를 들어 보세요.",
+     {type:"video", icon:"🎬", cat:"그 시대 음악", id:"5sdy-yMY4VE", sub:"바로크 시대 음악 · 유어메이트",
+      q:"바로크 음악만의 특징은 무엇일까요? 르네상스의 ‘어우러짐’과는 또 어떻게 달라졌는지 영상에서 확인해 보세요.",
       joy:"✨ 알겠어요?",
-      reveal:"<p>바로크 음악은 장식음이 많고 화려해요. ‘바로크’라는 말 자체가 ‘일그러진 진주’라는 뜻에서 왔을 정도죠. 바흐는 이 시대의 정점이었고, 그가 세상을 떠난 1750년이 바로크의 끝으로 여겨진답니다.</p>"},
+      reveal:"<p>바로크 음악은 화려한 장식음, 또렷한 장·단조(조성), 그리고 처음부터 끝까지 받쳐주는 ‘통주저음’이 특징이에요. 감정을 한층 극적으로 끌어올렸죠.</p>"},
+     {type:"video", icon:"🎬", cat:"음악 장르", id:"cvDE_cLgbTk", sub:"바로크 음악 장르 · 유어메이트",
+      q:"바로크 시대에 새로 태어나거나 활짝 핀 음악의 종류는 무엇이었을까요? 오늘날에도 즐겨 듣는 형식들이 이때 자리 잡았어요.",
+      joy:"✨ 새롭죠?",
+      reveal:"<p>오페라가 태어나고, 협주곡·소나타·푸가 같은 기악 형식이 활짝 폈어요. 위에서 들은 비발디 〈사계〉 같은 ‘협주곡’도 바로 이 시대의 꽃이랍니다.</p>"},
+     {type:"video", icon:"📜", cat:"대표 작곡가", id:"wKrw9ulLdSc", sub:"바로크 대표 작곡가와 주요 작품 · 유어메이트",
+      q:"바로크를 대표하는 작곡가는 누구일까요? 그가 세상을 떠난 해가 곧 ‘바로크의 끝’으로 여겨질 만큼 중요한 인물이에요.",
+      joy:"✨ 맞혔나요?",
+      reveal:"<p>대표 주자가 바흐예요(헨델·비발디와 함께요). ‘화려한 장식과 빈틈없는 짜임새’의 정점이었고, 그가 떠난 1750년이 바로크 시대의 끝으로 여겨진답니다.</p>"},
      {type:"quiz", icon:"❓", cat:"스무고개", q:"바로크 음악을 들으면 낮은음 하나가 처음부터 끝까지 ‘쿵-쿵’ 받쳐줘요. 왜 그렇게 만들었을까요?",
       hints:["건물로 치면 무엇에 해당할까요?","위층(가락)이 화려할수록, 아래가 튼튼해야겠죠?","낮은음이 흔들리면 위도 흔들려요.","그래서 낮은음을 ‘계속’ 깔아 둬요.","‘통째로(通) 받쳐주는 낮은음(低音)’이라 불러요."], write:true,
       joy:"🎉 그거예요!", reveal:'<div class="concept"><div class="concept-cap">통주저음 · 한결같이 받쳐주는 낮은음</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><text x="340" y="34" fill="var(--cream)" font-family="Nanum Myeongjo, serif" font-size="13" text-anchor="middle">화려한 가락</text><path d="M40 64 C 90 44, 110 84, 150 64 S 210 44, 250 64 S 330 84, 370 64 S 470 44, 520 64 S 600 84, 640 64" fill="none" stroke="var(--gold)" stroke-width="2.4"/><line x1="40" y1="140" x2="640" y2="140" stroke="var(--gold-deep)" stroke-width="6" stroke-linecap="round"/><text x="340" y="172" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12.5" text-anchor="middle">낮은음이 처음부터 끝까지 받쳐줘요</text></svg></div><p>낮은음이 처음부터 끝까지 받쳐주는 걸 ‘통주저음’이라고 해요. 튼튼한 토대 위에서 위쪽 가락이 마음껏 화려해질 수 있었죠. 그 받침을 주로 하프시코드와 첼로가 맡았답니다.</p>'}
    ]},
-  {num:"Ⅳ", era:"균형과 우아함", latin:"Classical", ko:"🏛 고전주의", years:"약 1750–1820", composers:"하이든 · 모차르트 · 보케리니", mood:"화려한 장식을 걷어내고, 깔끔하고 균형 잡힌 음악으로.",
+  {num:"Ⅴ", era:"균형과 우아함", latin:"Classical", ko:"🏛 고전주의", years:"약 1750–1820", composers:"하이든 · 모차르트 · 보케리니", mood:"화려한 장식을 걷어내고, 깔끔하고 균형 잡힌 음악으로.",
    cards:[
+     {type:"video", icon:"📜", cat:"시대 배경·흐름", id:"QUznSyhPRZQ", sub:"고전 시대배경·특징 · 유어메이트",
+      q:"모차르트·하이든이 살던 고전주의는 어떤 세상이었을까요? 바로크의 화려함 뒤에, 사람들은 왜 ‘깔끔하고 균형 잡힌’ 음악을 원하게 됐을까요? 영상으로 시대 배경을 따라가 보세요.",
+      joy:"✨ 그려지나요?",
+      reveal:"<p>고전주의는 ‘이성과 균형’을 중시하던 시대예요. 지나치게 화려하던 바로크에 대한 반작용으로, 누구나 듣기 쉽고 단정하며 균형 잡힌 음악을 선호하게 됐죠. 시민들이 음악을 즐기기 시작한 것도 이 무렵이에요.</p>"},
      {type:"music", icon:"🎵", cat:"들어볼 곡", id:"hzNN1Pl_JlA", sub:"Boccherini · 마드리드 거리의 밤 음악",
       q:"보케리니는 가사 한 줄 없이, 악기 소리만으로 도시의 하룻밤을 어떻게 그렸을까요? 저녁 종소리, 거리를 거니는 사람들, 새벽에 보초를 교대하는 야경꾼까지... 직접 들으며 찾아보세요.",
       joy:"✨ 들어봤나요?",
@@ -377,34 +446,60 @@ const ALBUM = [
       q:"이 곡을 들으면, 한 가락이 ‘질문’하고 다른 가락이 ‘대답’하는 것처럼 들리지 않나요? 어디가 질문이고 어디가 대답일까요? 귀 기울여 보세요.",
       joy:"✨ 들렸나요?",
       reveal:"<p>맞아요. 한 가락이 올라가며 묻고, 다른 가락이 차분히 내려오며 답해요. 이게 바로 고전주의의 ‘대화하는 균형’이에요. 아래 스무고개에서 그림으로도 확인해 보세요!</p>"},
-     {type:"video", icon:"🎬", cat:"음악 이야기", id:"10YQn3aXAF8", sub:"하프시코드 vs 피아노 · 소리 비교 (영어)",
-      q:"옛날 건반(하프시코드)은 왜 세게 눌러도 늘 똑같은 크기로만 소리가 날까요? 피아노랑 무엇이 다를까요? 영상에서 소리를 비교해 들어보면 바로 알 수 있어요.",
-      joy:"✨ 찾았다!",
-      reveal:"<p>하프시코드는 줄을 ‘뜯어서’(기타처럼), 피아노는 줄을 ‘때려서’ 소리를 내요. 그래서 피아노는 여리게(피아노)도 세게(포르테)도 칠 수 있죠. 그래서 원래 이름이 ‘피아노포르테’였어요. 피아노는 1700년쯤 바로크 끝자락에 발명돼, 바로 이 고전주의 시대에 음악의 주인공이 됐답니다.</p>"},
-     {type:"video", icon:"📜", cat:"역사 이야기", id:"UyB4-6g-Vbg", sub:"모차르트 이야기 · FreeSchool (영어)",
-      q:"모차르트는 몇 살에 처음 곡을 만들었을까요? 그리고 그 시대 음악가들은 누구 앞에서 연주하며 살았을까요? 영상에서 찾아보세요.",
-      joy:"✨ 놀랍죠?",
-      reveal:"<p>다섯 살 무렵부터 곡을 만든 신동이었어요! 누나와 함께 유럽 곳곳을 다니며 왕과 귀족 앞에서 연주했죠. 그 시절 음악가는 주로 궁정과 교회에 속해 일했답니다. 그 ‘잘 정돈된’ 시대의 분위기가 고전주의 음악의 깔끔함으로 이어졌어요.</p>"},
+     {type:"video", icon:"🎬", cat:"그 시대 음악", id:"mFu9NJ9R7Ak", sub:"고전시대 음악 · 유어메이트",
+      q:"고전주의 음악만의 특징은 무엇일까요? 바로크의 화려한 장식과는 또 어떻게 달라졌는지 영상에서 확인해 보세요.",
+      joy:"✨ 알겠어요?",
+      reveal:"<p>고전주의 음악은 화려한 장식을 걷어내고, 또렷한 가락과 ‘균형 잡힌 형식’(소나타·교향곡 등)을 갖췄어요. 이 무렵 ‘피아노’가 하프시코드를 밀어내고 주인공이 됐고요. 깔끔함과 우아함이 핵심이에요.</p>"},
+     {type:"video", icon:"📜", cat:"대표 작곡가", id:"z47bPJpd6pw", sub:"고전 대표 작곡가와 주요 작품 · 유어메이트",
+      q:"고전주의를 대표하는 작곡가들은 누구일까요? 위에서 들어본 보케리니·모차르트 외에 또 누가 있을까요?",
+      joy:"✨ 맞혔나요?",
+      reveal:"<p>하이든·모차르트·(초기) 베토벤이 대표 주자예요. 하이든이 교향곡·현악4중주의 틀을 다듬고, 모차르트가 그 위에 더없이 맑고 우아한 선율을 얹었죠. 위에서 들은 보케리니·모차르트도 이 시대의 별이랍니다.</p>"},
      {type:"quiz", icon:"❓", cat:"스무고개", q:"고전주의 음악은 ‘대화’를 닮았대요. 무슨 대화일까요? 힌트를 하나씩 열어 생각해 보세요.",
       hints:["둘이 함께 있을 때만 생기는 거예요. 무엇일까요?","한 사람이 먼저 무언가를 ‘건네면’, 상대는 어떻게 할까요?","말로 치면, 한쪽이 ‘물음표(?)’를 던지는 거예요.","음(가락)으로는, 한 가락이 위로 ‘올라가며’ 던져요.","그럼 다른 가락은 아래로 ‘내려오며’ 마침표(.)를 찍죠."], write:true,
       joy:"🎉 바로 그거예요!", reveal:'<div class="concept"><div class="concept-cap">대화하는 균형 · 질문하고, 대답하기</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><line x1="40" y1="150" x2="640" y2="150" stroke="var(--gold-deep)" stroke-width="1" stroke-dasharray="3 7" opacity="0.55"/><path d="M60 150 C 140 150, 175 65, 300 65" fill="none" stroke="var(--gold)" stroke-width="2.6" stroke-linecap="round"/><circle cx="300" cy="65" r="5.5" fill="var(--gold-bright)"/><text x="180" y="44" fill="var(--cream)" font-family="Nanum Myeongjo, serif" font-size="16" text-anchor="middle">질문 ↑</text><path d="M380 65 C 505 65, 545 150, 620 150" fill="none" stroke="var(--rose)" stroke-width="2.6" stroke-linecap="round"/><circle cx="620" cy="150" r="5.5" fill="var(--rose)"/><text x="500" y="44" fill="var(--cream)" font-family="Nanum Myeongjo, serif" font-size="16" text-anchor="middle">대답 ↓</text><text x="340" y="186" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12.5" text-anchor="middle">올라간 질문은, 내려오는 대답으로 차분히 마무리돼요</text></svg></div><p>질문하듯 올라간 가락은, 대답하듯 내려와 차분히 마무리돼요. ‘밥 먹었어?’ 하고 물으면 ‘응, 먹었어’ 하고 답하는 것처럼요. 이게 고전주의의 ‘대화하는 균형’이에요.</p>'}
    ],
    bridge:{sub:"이 〈마드리드 거리의 밤 음악〉, 어디서 들었더라? 바로 2장 〈마스터 앤드 커맨더〉의 그 곡이에요. 우리의 음악 여행이 영화와 만나는 지점이죠.", label:"2장 · 영화음악 타임머신에서 다시 만나기", href:"https://pagodream.github.io/moviemusic/"}},
-  {num:"Ⅴ", era:"감정의 파도", latin:"Romantic", ko:"🌙 낭만주의", years:"약 1820–1900", composers:"쇼팽 · 베토벤 · 차이콥스키", mood:"규칙보다 ‘마음’을, 셈여림과 이야기로 감정을 쏟아내다.",
+  {num:"Ⅵ", era:"감정의 파도", latin:"Romantic", ko:"🌙 낭만주의", years:"약 1820–1900", composers:"쇼팽 · 베토벤 · 차이콥스키", mood:"규칙보다 ‘마음’을, 셈여림과 이야기로 감정을 쏟아내다.",
    cards:[
+     {type:"video", icon:"📜", cat:"시대 배경·흐름", id:"9c2eQxCHsF0", sub:"낭만 시대적 배경 · 유어메이트",
+      q:"낭만주의는 어떤 세상에서 피어났을까요? 혁명과 산업화로 세상이 크게 흔들리던 시대, 사람들은 음악에서 무엇을 찾으려 했을까요? 영상으로 시대 배경을 따라가 보세요.",
+      joy:"✨ 그려지나요?",
+      reveal:"<p>혁명과 산업화로 세상이 빠르게 변하던 시대였어요. 사람들은 규칙과 형식보다 ‘개인의 감정과 상상’에 눈을 돌렸고, 음악도 마음을 마음껏 쏟아내는 예술이 됐죠. 콘서트홀에 모인 시민들이 비르투오소(거장 연주자)에게 열광하기도 했고요.</p>"},
      {type:"music", icon:"🎵", cat:"들어볼 곡", id:"QR10Od1cLaM", sub:"쇼팽 · 녹턴 Op.9 No.2 (조성진)",
       q:"이 곡을 들으면 어떤 ‘마음’이 떠오르나요? 슬픔, 그리움, 설렘... 정답은 없어요. 눈을 감고 떠오르는 장면을 느껴 보세요.",
       joy:"✨ 어떤 마음이 떠올랐나요?",
       reveal:"<p>고전주의가 ‘균형’이었다면, 낭만주의는 ‘감정’이에요. 작곡가는 규칙보다 자기 마음을 음악에 그대로 담았죠. 그래서 듣는 사람마다 떠오르는 장면이 다른 게 자연스러워요. 떠올린 그 마음이 바로 정답이에요.</p>"},
-     {type:"video", icon:"📜", cat:"역사 이야기", id:"ms9tyNKtjcs", sub:"베토벤 이야기 · FreeSchool (영어)",
-      q:"어떤 작곡가는 귀가 거의 들리지 않게 됐는데도 위대한 곡을 썼대요. 음악을 ‘귀’ 말고 무엇으로 느꼈을까요? 베토벤의 이야기에서 찾아보세요.",
-      joy:"✨ 뭉클하죠?",
-      reveal:"<p>베토벤이에요. 그는 고전주의에서 낭만주의로 넘어가는 ‘다리’ 같은 작곡가였어요. 점점 소리를 잃으면서도 머릿속과 마음으로 음악을 ‘느끼며’ 9번 교향곡을 썼고, 못 듣는 채로 초연을 지휘했답니다. 감정의 힘이죠.</p>"},
+     {type:"video", icon:"🎬", cat:"그 시대 음악", id:"Xq-RvqlBnCs", sub:"낭만주의 시대 음악 · 유어메이트",
+      q:"고전주의의 ‘균형’ 다음, 낭만주의 음악은 무엇을 가장 소중히 여겼을까요? 영상에서 그 변화를 확인해 보세요.",
+      joy:"✨ 알겠어요?",
+      reveal:"<p>바로 ‘감정’이에요. 셈여림을 크게 출렁이게 하고, 화음을 더 풍부하고 대담하게 써서 마음의 떨림을 그대로 전했죠. 귀를 잃고도 위대한 곡을 쓴 베토벤이 그 다리를 놓았고, 쇼팽처럼 ‘이야기와 감정’을 담은 음악이 활짝 폈어요.</p>"},
+     {type:"video", icon:"🎬", cat:"음악 장르", id:"GyL5WxphyEs", sub:"낭만주의 음악 장르 · 유어메이트",
+      q:"낭만주의 시대에는 어떤 음악들이 사랑받았을까요? 짧은 피아노 소품부터 거대한 오페라까지, 어떤 갈래가 있었을까요?",
+      joy:"✨ 새롭죠?",
+      reveal:"<p>녹턴·즉흥곡 같은 짧고 서정적인 피아노 소품, 시에 붙인 노래(가곡), 그리고 이야기를 통째로 담은 교향시·오페라까지 폭이 무척 넓어졌어요. ‘짧은 속삭임’부터 ‘거대한 드라마’까지, 감정의 폭만큼 다양해진 거죠.</p>"},
      {type:"quiz", icon:"❓", cat:"스무고개", q:"낭만주의 음악은 같은 곡 안에서도 아주 여리다가 갑자기 폭발하듯 커져요. 왜 그렇게 만들었을까요?",
       hints:["사람의 ‘마음’을 떠올려 보세요.","기쁠 때와 슬플 때, 목소리 크기가 같나요?","감정이 커지면 소리도?","그래서 여리게(p)에서 아주 세게(f)까지 크게 출렁여요.","고전주의의 ‘균형’ 대신, 이 시대는 무엇을 가장 중요하게 여겼을까요?"], write:true,
       joy:"🎉 맞아요!", reveal:'<div class="concept"><div class="concept-cap">감정의 파도 · 셈여림이 크게 출렁</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><path d="M40 100 C 170 96, 250 42, 345 42 C 440 42, 515 96, 640 100" fill="none" stroke="var(--gold)" stroke-width="2.6"/><path d="M40 100 C 170 104, 250 158, 345 158 C 440 158, 515 104, 640 100" fill="none" stroke="var(--rose)" stroke-width="2.6"/><text x="95" y="120" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="11" text-anchor="middle">여리게</text><text x="345" y="30" fill="var(--gold-bright)" font-family="Nanum Myeongjo, serif" font-size="13" text-anchor="middle">아주 세게!</text><text x="340" y="186" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12.5" text-anchor="middle">여리게 → 점점 크게 → 다시 잦아들어</text></svg></div><p>낭만주의는 ‘감정’을 가장 중요하게 여겼어요. 그래서 셈여림(소리의 크기)을 큰 파도처럼 출렁이게 해, 마음의 떨림을 그대로 전했죠. 오케스트라도 더 커지고, 음악이 이야기를 통째로 담기 시작했어요.</p>'}
    ]},
-  {num:"Ⅵ", era:"규칙을 깨고, 갈래로 나뉘다", latin:"Modern", ko:"🚀 근현대", years:"약 1900–오늘", composers:"드뷔시 · 거슈윈 · 존 윌리엄스", mood:"옛 규칙을 깨고, 재즈·영화음악 등 여러 갈래로 퍼지다.",
+  {num:"Ⅶ", era:"저마다의 색깔", latin:"Nationalism", ko:"🗺 민족주의", years:"약 1850–1900", composers:"스메타나 · 드보르자크 · 그리그 · 시벨리우스", mood:"중심지 밖 나라들이 ‘우리 색깔’로 — 민요·전설·풍경을 음악에 담다.",
+   cards:[
+     {type:"video", icon:"📜", cat:"시대 배경·흐름", id:"oMG3vh-c77E", sub:"민족주의 시대적 배경 · 유어메이트",
+      q:"독일·이탈리아가 음악의 중심이던 시절, 변두리 나라들은 왜 ‘우리만의 음악’을 만들고 싶어 했을까요? 영상으로 시대 배경을 따라가 보세요.",
+      joy:"✨ 그려지나요?",
+      reveal:"<p>이 무렵 유럽엔 ‘우리 민족은 누구인가’라는 의식과 독립 열망이 크게 일었어요. 그래서 음악의 변두리로 여겨지던 나라(체코·러시아·노르웨이·핀란드 등)의 작곡가들이 ‘우리 색깔’의 음악으로 자기 나라를 노래하기 시작했죠.</p>"},
+     {type:"music", icon:"🎵", cat:"들어볼 곡", id:"fiOGCwZGgXY", sub:"스메타나 · 〈몰다우〉 (체코 필하모닉)",
+      q:"이 곡은 체코를 흐르는 강 ‘몰다우’를 그린 음악이에요. 작은 샘에서 시작해 큰 강이 되어 흐르는 모습을 소리로 어떻게 그렸을까요? 강물의 흐름을 따라가며 들어 보세요.",
+      joy:"✨ 강이 보이나요?",
+      reveal:"<p>졸졸 흐르던 작은 샘이 점점 불어나 도도한 강이 되는 과정을, 가락이 커지고 풍성해지며 그려내요. 가사 한 줄 없이 ‘우리나라 강’을 음악으로 그린 거죠. 체코 사람들에겐 그 자체로 ‘우리’를 노래하는 곡이랍니다.</p>"},
+     {type:"video", icon:"🎬", cat:"그 시대 음악", id:"8kT93MRo7bM", sub:"민족주의 시대 음악 · 유어메이트",
+      q:"민족주의 음악은 다른 시대 음악과 무엇이 가장 달랐을까요? ‘우리 색깔’을 어떻게 음악에 담았는지 영상에서 확인해 보세요.",
+      joy:"✨ 알겠어요?",
+      reveal:"<p>자기 나라의 민요 가락, 전통 춤의 리듬, 전설과 풍경을 음악 재료로 썼어요. 그래서 듣자마자 ‘아, 이건 그 나라 음악!’ 하고 느껴지죠. 스메타나·드보르자크(체코), 그리그(노르웨이), 시벨리우스(핀란드), 러시아 5인조가 대표 주자예요.</p>"},
+     {type:"quiz", icon:"❓", cat:"스무고개", q:"독일·이탈리아가 음악의 중심이던 시절, 변두리 나라 작곡가들은 어떻게 ‘우리만의 음악’을 만들었을까요?",
+      hints:["다른 나라를 그대로 따라 하면 ‘우리 것’이 될까요?","할머니가 불러주시던 노래(민요)를 떠올려 보세요.","우리나라 춤, 전설, 강과 산을 음악에 담으면?","그러면 듣자마자 ‘아, 그 나라 음악!’ 하고 느껴지겠죠.","자기 ‘민족(나라)’의 색을 담았다고 해서, 이걸 OOO 음악이라 불러요."], write:true,
+      joy:"🎉 바로 그거예요!", reveal:'<div class="concept"><div class="concept-cap">음악으로 그린 ‘우리 강, 우리 노래’</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><path d="M30 55 C 130 40, 170 108, 260 96 C 350 85, 400 44, 480 80 C 560 114, 610 118, 660 104" fill="none" stroke="var(--gold)" stroke-width="5" stroke-linecap="round"/><circle cx="120" cy="46" r="4" fill="var(--rose)"/><circle cx="300" cy="60" r="4" fill="var(--gold-bright)"/><circle cx="470" cy="58" r="4" fill="var(--rose)"/><circle cx="600" cy="92" r="4" fill="var(--gold-bright)"/><text x="340" y="165" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12.5" text-anchor="middle">스메타나 〈몰다우〉처럼, 저마다 ‘고향’을 노래했어요</text></svg></div><p>자기 나라의 민요·춤·전설·풍경을 음악에 담은 거예요. 그래서 스메타나의 〈몰다우〉를 들으면 체코의 강이, 그리그를 들으면 노르웨이의 아침이 떠오르죠. 이렇게 ‘우리 색깔’을 담은 흐름을 민족주의(국민악파)라고 해요. 음악으로 ‘우리는 누구인가’를 그린 셈이죠.</p>'}
+   ]},
+  {num:"Ⅷ", era:"규칙을 깨고, 갈래로 나뉘다", latin:"Modern", ko:"🚀 근현대", years:"약 1900–오늘", composers:"드뷔시 · 거슈윈 · 존 윌리엄스", mood:"옛 규칙을 깨고, 재즈·영화음악 등 여러 갈래로 퍼지다.",
    cards:[
      {type:"music", icon:"🎵", cat:"들어볼 곡", id:"-Bxpm0EmOMU", sub:"드뷔시 · 〈달빛〉 (메나헴 프레슬러)",
       q:"이 곡은 또렷한 멜로디보다 ‘안개’나 ‘달빛’ 같은 느낌이에요. 가락이 아니라 ‘분위기’를 어떻게 소리로 그렸을까요? 흐릿하게 번지는 화음을 느껴 보세요.",
@@ -423,6 +518,10 @@ let activeTrack=null, player=null, apiReady=false, pendingTrack=null, playMode='
 const ytTag=document.createElement('script'); ytTag.src='https://www.youtube.com/iframe_api'; document.head.appendChild(ytTag);
 window.onYouTubeIframeAPIReady=function(){apiReady=true; if(pendingTrack){const t=pendingTrack; pendingTrack=null; createPlayer(t);}};
 
+function playOverview(){
+  var b=document.getElementById('ovVideo'); if(!b) return;
+  b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/kKfpfUVN4SI?rel=0&modestbranding=1&autoplay=1" title="클래식 음악사 총정리" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+}
 function buildAlbum(){
   const root=document.getElementById('chapters');
   ALBUM.forEach((ch,ci)=>{
