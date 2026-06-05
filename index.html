@@ -220,7 +220,7 @@
   .dl-btn:hover{background:rgba(201,162,91,0.16);border-color:var(--gold-deep);color:var(--gold-bright)}
   .dl-note{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.7}
   @media print{
-    @page{margin:14mm}
+    @page{margin:16mm 14mm}
     body{background:#fff!important}
     body::before,body::after{display:none!important}
     /* 공통: 인터랙션·영상·장식 숨김 */
@@ -239,32 +239,22 @@
     .concept{background:#faf6ee!important;border:1px solid #e3d6b8!important;break-inside:avoid}
     .concept svg text{fill:#6a542f!important}
     .bridge{border:1px solid #c9a25b!important}
-    /* 읽기 자료: 시대별 한 장 · 읽기 지문 + 스스로 생각해보기 */
-    body.readmode .booknav,body.readmode .ov-video,body.readmode .ribbon,body.readmode .overview,body.readmode .thought,body.readmode .ch-meta,body.readmode footer{display:none!important}
+    /* 읽기 자료: 초등 비문학 독서 지문 형식 (명조·양끝맞춤·들여쓰기·넉넉한 여백) */
+    body.readmode .booknav,body.readmode .ov-video,body.readmode .ribbon,body.readmode .overview,body.readmode .thought,body.readmode .ch-meta,body.readmode footer,body.readmode .ch-head{display:none!important}
     body.readmode .tracks{display:none!important}
     body.readmode .readsheet{display:block!important}
-    body.readmode .chapter{page-break-before:always;break-inside:auto;border:0!important}
-    body.readmode .ch-head{cursor:default}
-    .rs-body p{font-family:var(--serif-ko);font-size:13.6px;line-height:1.95;margin:0 0 11px}
-    .rs-body p:first-child{margin-top:14px}
-    .rs-ask{margin-top:18px;padding:14px 16px;border:1px solid #d8c9a8!important;border-radius:10px;background:#faf6ee!important;break-inside:avoid}
-    .rs-ask-h{font-family:var(--serif-la);font-style:italic;font-size:13px;color:#7a5a1f!important;margin-bottom:9px;letter-spacing:.04em}
-    .rs-q{display:flex;gap:8px;font-family:var(--serif-ko);font-size:12.9px;line-height:1.7;margin-bottom:8px}
-    .rs-n{flex:none;color:#b88a2e!important;font-weight:700}
-    /* 시대 카드: 한 장에 한 시대 · 요약 + 질문 + 들을거리 (답은 숨김) */
-    body.cardmode header,body.cardmode .thought,body.cardmode .overview,body.cardmode footer{display:none!important}
-    body.cardmode .reveal,body.cardmode .hints,body.cardmode .joy,body.cardmode .bridge{display:none!important}
-    body.cardmode .chapter{page-break-after:always;break-inside:avoid;border:2px solid #c9a25b;border-radius:18px;padding:30px 30px;margin:0 auto;max-width:660px}
-    body.cardmode .chapter:last-of-type{page-break-after:auto}
-    body.cardmode .ch-head{display:block!important;text-align:center;border:0!important;padding:0!important}
-    body.cardmode .ch-num{display:block!important;margin:0 auto 4px!important;font-size:54px!important;line-height:1!important;width:auto!important;height:auto!important;min-width:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;color:#b88a2e!important}
-    body.cardmode .ch-body{text-align:center}
-    body.cardmode .era-mood{font-size:15px!important;margin-top:6px}
-    body.cardmode .tracks-inner{margin-top:16px;text-align:left}
-    body.cardmode .qcard{border:0!important;border-top:1px dashed #dccba6!important;border-radius:0;padding:9px 2px;margin:0}
-    body.cardmode .qcard:first-child{border-top:0!important}
-    body.cardmode .q-cat{font-size:11.5px!important}
-    body.cardmode .q-hook{font-size:13.5px!important}
+    body.readmode .chapter{page-break-before:always;break-inside:auto;border:0!important;padding:0!important}
+    .readsheet{max-width:144mm;margin:0 auto}
+    .rs-head{display:flex;align-items:center;gap:12px;margin:1mm 0 2mm}
+    .rs-num{flex:none;width:31px;height:31px;border-radius:7px;background:#4a3f30!important;color:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-family:var(--sans);font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center}
+    .rs-title{font-family:var(--serif-ko);font-weight:700;font-size:24px;color:#1a140d!important;letter-spacing:-.01em}
+    .rs-sub{font-family:var(--sans);font-size:11px;color:#9a8a6f!important;letter-spacing:.03em;margin:0 0 9mm 43px}
+    .rs-body p{font-family:var(--serif-ko);font-size:15.5px;line-height:1.95;margin:0 0 .9em;text-indent:1.4em;text-align:justify;word-break:keep-all;color:#241c12!important}
+    .rs-ask{margin-top:10mm;padding-top:6mm;border-top:1px solid #d8c9a8!important;break-inside:avoid}
+    .rs-ask-h{font-family:var(--serif-ko);font-weight:700;font-size:15px;color:#3a2f20!important;margin-bottom:5mm}
+    .rs-q{display:flex;gap:10px;font-family:var(--serif-ko);font-size:14px;line-height:1.85;margin-bottom:4mm;text-align:justify;word-break:keep-all}
+    .rs-n{flex:none;width:22px;height:22px;border-radius:6px;background:#efe6d2!important;color:#8a6a2e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-family:var(--sans);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+    .rs-foot{margin-top:11mm;padding-top:4mm;border-top:1px solid #e0d3b4!important;font-family:var(--sans);font-size:10.5px;color:#a8987a!important}
   }
   .qcard{margin:0 4px 18px;padding:16px 15px 13px;border:1px solid var(--line-soft);border-radius:14px;background:rgba(20,16,11,.30)}
   .q-cat{font-family:var(--serif-la);font-style:italic;font-size:12px;letter-spacing:.06em;color:var(--rose);margin-bottom:7px}
@@ -295,6 +285,7 @@
   .mw-echo:not(:empty){margin-bottom:13px;padding:10px 12px;border-left:2px solid var(--rose);background:rgba(201,143,114,.07);border-radius:0 8px 8px 0}
   .mw-echo-l{font-family:var(--serif-la);font-style:italic;font-size:11.5px;color:var(--rose);margin-bottom:4px}
   .mw-echo-t{font-family:var(--serif-ko);font-size:14px;color:var(--cream);line-height:1.7}
+  .mw-echo-c{font-family:var(--serif-ko);font-size:11.5px;color:var(--muted);margin-top:7px;line-height:1.6}
   .overview{margin:6px 0 30px;padding:20px 14px 18px;border:1px solid var(--line-soft);border-radius:16px;background:rgba(20,16,11,.25)}
   .ov-title{font-family:var(--serif-la);font-style:italic;font-size:13px;letter-spacing:.08em;color:var(--gold);text-align:center;margin-bottom:18px}
   .ribbon{position:relative;display:flex;gap:4px;overflow-x:auto;padding:2px 2px 8px}
@@ -353,8 +344,7 @@
     <div class="howto-wrap"><span class="howto">카드마다 <b>질문이 먼저</b> 나와요. 직접 듣고·보고·생각한 다음 <b>‘펼치기’</b>를 누르면 답이 나옵니다. 답을 바로 보지 말고, 아이가 스스로 맞혀 보게 해주세요. 위 ‘한눈에 보기’에서 궁금한 시대를 눌러 바로 떠날 수도 있어요.</span></div>
     <div class="dl-bar">
       <button class="dl-btn" onclick="printMode('read')">🖨 읽기 자료로 저장 (PDF)</button>
-      <button class="dl-btn" onclick="printMode('card')">🃏 시대 카드로 저장 (PDF)</button>
-      <div class="dl-note"><b>읽기 자료</b>는 질문과 답이 함께 담긴 소책자, <b>시대 카드</b>는 한 장에 한 시대씩 ‘질문 + 들어볼 곡’만 담은 활동 카드예요. 버튼을 누르면 인쇄 창이 떠요. ‘대상’을 <b>PDF로 저장</b>으로 고르면 파일로 받습니다. (PC에서 가장 잘 됩니다.)</div>
+      <div class="dl-note">🖨 버튼을 누르면 인쇄 창이 떠요. 시대마다 한 장씩, ‘읽기 지문 + 스스로 생각해보기’가 담긴 소책자로 만들어져요. ‘대상’을 <b>PDF로 저장</b>으로 고르면 파일로 받습니다. (PC·노트북에서 가장 잘 됩니다.)</div>
     </div>
   </section>
 
@@ -452,7 +442,7 @@ const ALBUM = [
       q:"르네상스 다성음악을 가장 맑고 아름답게 완성한 작곡가는 누구였을까요? 위에서 들어본 그 곡의 주인공이기도 해요.",
       joy:"✨ 맞혔나요?",
       reveal:"<p>대표 주자가 팔레스트리나예요. 여러 목소리가 복잡하게 얽혀도 가사가 또렷이 들리고 더없이 맑게 어우러지도록 다듬었죠. 위에서 들은 〈Sicut cervus〉가 바로 그의 곡이랍니다.</p>"},
-     {type:"quiz", icon:"❓", cat:"스무고개", q:"한 사람이 ‘도-미-솔’을 부를 때, 옆 사람이 다른 음을 같이 부르면 어떻게 될까요?",
+     {type:"quiz", icon:"❓", cat:"스무고개", q:"여러 사람이 ‘서로 다른 가락’을 동시에 부르면, 엉망이 될까요 아니면 더 아름다워질까요?",
       hints:["혼자 부르면 가락이 ‘한 줄’이죠.","둘이 다른 음을 함께 내면?","어떤 음끼리는 같이 울리면 ‘예쁘게’ 어울려요.","여러 줄이 동시에 흐르는 걸 한 단어로 부른대요.","‘여러(多) 소리(聲)’ — 한자 뜻 그대로예요."], write:true,
       joy:"🎉 맞았어요!", reveal:'<div class="concept"><div class="concept-cap">다성음악 · 여러 목소리가 함께</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><path d="M40 70 C 140 40, 240 100, 340 70 S 540 40, 640 70" fill="none" stroke="var(--gold)" stroke-width="2.4"/><path d="M40 105 C 140 135, 240 75, 340 105 S 540 135, 640 105" fill="none" stroke="var(--rose)" stroke-width="2.4"/><path d="M40 140 C 160 110, 260 170, 360 140 S 540 110, 640 140" fill="none" stroke="var(--cream-dim)" stroke-width="2.4"/><text x="340" y="190" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12.5" text-anchor="middle">서로 다른 가락이 동시에, 그러나 어우러지게</text></svg></div><p>여러 가락이 동시에 어우러지는 걸 ‘다성음악’이라고 해요. 혼자선 한 줄이지만, 여럿이 규칙을 지키며 겹치면 풍성한 화음이 되죠. 르네상스는 바로 이 ‘함께 부르기’가 활짝 핀 시대예요.</p>'}
    ]},
@@ -668,7 +658,7 @@ function buildAlbum(){
       cardsHTML+='<div class="qcard"><div class="q-cat">'+(c.icon||'')+' '+(c.cat||'')+'</div>'+
         '<div class="q-hook">'+c.q+'</div>'+inner+
         '<button class="reveal-btn">'+rbLabel+'</button>'+
-        '<div class="reveal"><div class="reveal-inner"><div class="mw-echo"></div>'+(c.joy?'<div class="joy">'+c.joy+'</div>':'')+(c.reveal||'')+'</div></div></div>';
+        '<div class="reveal"><div class="reveal-inner"><div class="mw-echo"></div>'+(c.reveal||'')+'</div></div></div>';
     });
     const bridgeHTML=ch.bridge?'<a class="bridge" href="'+ch.bridge.href+'"><div class="bridge-sub">'+ch.bridge.sub+'</div><div class="bridge-go">'+ch.bridge.label+' →</div></a>':'';
     sec.innerHTML='<div class="ch-head"><div class="ch-num">'+ch.num+'</div><div class="ch-body">'+
@@ -680,7 +670,7 @@ function buildAlbum(){
       '<div class="ch-toggle">+</div></div>'+
       '<div class="tracks"><div class="tracks-inner">'+cardsHTML+bridgeHTML+'</div></div>';
     root.appendChild(sec);
-    if(typeof READSHEET!=='undefined'&&READSHEET[sec.id]){var _rs=READSHEET[sec.id];var _d=document.createElement('div');_d.className='readsheet';_d.innerHTML='<div class="rs-body">'+_rs.read+'</div><div class="rs-ask"><div class="rs-ask-h">스스로 생각해보기</div>'+_rs.ask.map(function(q,i){return '<div class="rs-q"><span class="rs-n">'+(i+1)+'</span><span class="rs-t">'+q+'</span></div>';}).join('')+'</div>';sec.appendChild(_d);}
+    if(typeof READSHEET!=='undefined'&&READSHEET[sec.id]){var _rs=READSHEET[sec.id];var _nm=ch.ko.replace(/[^가-힣]/g,'');var _d=document.createElement('div');_d.className='readsheet';_d.innerHTML='<div class="rs-head"><span class="rs-num">'+(ci+1)+'</span><span class="rs-title">'+ch.era+'</span></div><div class="rs-sub">'+_nm+' · '+ch.years+' · 읽기 자료</div><div class="rs-body">'+_rs.read+'</div><div class="rs-ask"><div class="rs-ask-h">스스로 생각해보기</div>'+_rs.ask.map(function(q,i){return '<div class="rs-q"><span class="rs-n">'+(i+1)+'</span><span class="rs-t">'+q+'</span></div>';}).join('')+'</div><div class="rs-foot">음악 시대 여행 · 마더클럽</div>';sec.appendChild(_d);}
     const head=sec.querySelector('.ch-head');
     const tracksBox=sec.querySelector('.tracks');
     head.addEventListener('click',()=>{const o=sec.classList.toggle('open');tracksBox.style.maxHeight=o?(tracksBox.scrollHeight+1400)+'px':'0px';if(o){const rn=document.querySelector('.rib-node[data-target="'+sec.id+'"]');if(rn)rn.classList.add('lit');}});
@@ -689,7 +679,7 @@ function buildAlbum(){
       btn.addEventListener('click',function(ev){ev.stopPropagation();
         const card=btn.closest('.qcard'); const rv=card.querySelector('.reveal');
         const ta=card.querySelector('.mw-area'), echo=card.querySelector('.mw-echo');
-        if(echo){ if(ta&&ta.value.trim()){ echo.innerHTML='<div class="mw-echo-l">내가 적어본 생각</div><div class="mw-echo-t">\u201c'+ta.value.trim().replace(/[<>]/g,' ')+'\u201d</div>'; } else { echo.innerHTML='<div class="mw-echo-l">직접 떠올려본 것만으로도 충분해요 ☺</div>'; } }
+        if(echo){ var _v=ta?ta.value.trim().replace(/[<>]/g,' '):''; echo.innerHTML=_v?('<div class="mw-echo-l">내가 적어본 생각</div><div class="mw-echo-t">\u201c'+_v+'\u201d</div>'):''; }
         card.classList.add('revealed');
         rv.style.maxHeight=(rv.scrollHeight+60)+'px';
         setTimeout(()=>refit(tracksBox),60);
