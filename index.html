@@ -92,6 +92,12 @@
   .page-turn .pt-text{display:flex;flex-direction:column;line-height:1.3;text-align:center}
   .page-turn .pt-label{font-family:var(--serif-ko);font-size:11px;letter-spacing:.24em;color:var(--gold)}
   .page-turn .pt-title{font-family:var(--serif-ko);font-size:15px;color:var(--cream);margin-top:2px}
+  .booknav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:0 auto 30px;max-width:600px}
+  .booknav .bn{font-family:var(--serif-ko);font-size:12.5px;color:var(--cream-dim);text-decoration:none;padding:7px 15px;border:1px solid var(--line-soft);border-radius:100px;background:rgba(201,162,91,0.04);transition:border-color .3s,background .3s,color .3s;white-space:nowrap}
+  .booknav .bn b{font-family:var(--serif-la);color:var(--gold);font-weight:600;margin-right:4px}
+  .booknav a.bn:hover{border-color:var(--gold-deep);background:rgba(201,162,91,0.1);color:var(--cream)}
+  .booknav .bn.cur{background:linear-gradient(180deg,rgba(201,162,91,0.18),rgba(201,162,91,0.05));border-color:var(--gold-deep);color:var(--cream)}
+  .booknav .bn.cur b{color:var(--gold-bright)}
   .howto-wrap{text-align:center;margin-top:34px}
   .howto{font-size:13px;color:var(--muted);text-align:center;margin:0 auto;padding:12px 18px;border:1px solid var(--line-soft);border-radius:100px;display:inline-block}
   .howto b{color:var(--gold);font-weight:500}
@@ -209,21 +215,42 @@
   .dl-btn:hover{background:rgba(201,162,91,0.16);border-color:var(--gold-deep);color:var(--gold-bright)}
   .dl-note{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.7}
   @media print{
+    @page{margin:14mm}
     body{background:#fff!important}
     body::before,body::after{display:none!important}
-    .dl-bar,.page-turn,.howto-wrap,.memorial-tag,.ch-toggle,.eq,.pseek,.pcontrols,.player,.player-slot,.deep-more,.thumb,.ornament{display:none!important}
-    .wrap{max-width:none;padding:0}
-    .wrap, .wrap *{color:#2a2118!important;text-shadow:none!important;background:transparent!important}
-    .ch-latin,.ch-ko,.foot-quote .big,.ask-h,.bridge-go,.tracks-label,.concept-cap{color:#7a5a1f!important}
+    /* 공통: 인터랙션·영상·장식 숨김 */
+    .booknav,.dl-bar,.page-turn,.howto-wrap,.memorial-tag,.ch-toggle,.eq,.player,.player-slot,.thumb,.t-media,.t-title,.ornament,.ov-video,.ribbon,.reveal-btn,.mw-echo,.mywrite{display:none!important}
+    .wrap{max-width:none!important;padding:0!important}
+    .wrap,.wrap *{color:#2a2118!important;text-shadow:none!important;background:transparent!important}
+    .ch-latin,.ch-ko,.foot-quote .big,.q-cat,.bridge-go,.ov-title,.joy,.concept-cap,.thought-by{color:#7a5a1f!important}
+    .era-meta,.em-years{color:#8a6a30!important}
+    .t-sub{color:#5f5038!important}
     .tracks{max-height:none!important;overflow:visible!important}
-    .deep-detail{max-height:none!important;overflow:visible!important}
+    .reveal{max-height:none!important;overflow:visible!important}
+    .hint-text{max-height:none!important;overflow:visible!important}
     .chapter{break-inside:avoid}
-    .deep-inner,.ask,.bridge,.concept{border-color:#c9a25b!important}
-    .t-sub{color:#6a5a40!important}
-    .concept{background:#faf6ee!important}
-    body.cardmode header .epigraph,body.cardmode .intro,body.cardmode .latin-title,body.cardmode .thought,body.cardmode footer{display:none!important}
-    body.cardmode .chapter{page-break-after:always;border:2px solid #c9a25b;border-radius:16px;padding:30px 26px;margin:0}
-    body.cardmode .t-media{display:none}
+    .qcard{break-inside:avoid;border:1px solid #e3d6b8!important;border-radius:10px;padding:12px 15px;margin:0 0 12px}
+    .track{display:flex!important;border:0!important;padding:3px 0!important;cursor:default}
+    .concept{background:#faf6ee!important;border:1px solid #e3d6b8!important;break-inside:avoid}
+    .concept svg text{fill:#6a542f!important}
+    .bridge{border:1px solid #c9a25b!important}
+    /* 읽기 자료: 질문 + 펼친 답까지, 쭉 읽는 소책자 */
+    body.readmode .hints{display:none!important}
+    body.readmode .q-hook{font-weight:600}
+    /* 시대 카드: 한 장에 한 시대 · 요약 + 질문 + 들을거리 (답은 숨김) */
+    body.cardmode header,body.cardmode .thought,body.cardmode .overview,body.cardmode footer{display:none!important}
+    body.cardmode .reveal,body.cardmode .hints,body.cardmode .joy,body.cardmode .bridge{display:none!important}
+    body.cardmode .chapter{page-break-after:always;break-inside:avoid;border:2px solid #c9a25b;border-radius:18px;padding:30px 30px;margin:0 auto;max-width:660px}
+    body.cardmode .chapter:last-of-type{page-break-after:auto}
+    body.cardmode .ch-head{display:block!important;text-align:center;border:0!important;padding:0!important}
+    body.cardmode .ch-num{display:block!important;margin:0 auto 4px!important;font-size:54px!important;line-height:1!important;width:auto!important;height:auto!important;min-width:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;color:#b88a2e!important}
+    body.cardmode .ch-body{text-align:center}
+    body.cardmode .era-mood{font-size:15px!important;margin-top:6px}
+    body.cardmode .tracks-inner{margin-top:16px;text-align:left}
+    body.cardmode .qcard{border:0!important;border-top:1px dashed #dccba6!important;border-radius:0;padding:9px 2px;margin:0}
+    body.cardmode .qcard:first-child{border-top:0!important}
+    body.cardmode .q-cat{font-size:11.5px!important}
+    body.cardmode .q-hook{font-size:13.5px!important}
   }
   .qcard{margin:0 4px 18px;padding:16px 15px 13px;border:1px solid var(--line-soft);border-radius:14px;background:rgba(20,16,11,.30)}
   .q-cat{font-family:var(--serif-la);font-style:italic;font-size:12px;letter-spacing:.06em;color:var(--rose);margin-bottom:7px}
@@ -289,13 +316,18 @@
 </head>
 <body>
 <div class="wrap">
+  <nav class="booknav" aria-label="장 이동">
+    <a class="bn" href="https://pagodream.github.io/hismusic/jaehoon-music.html"><b>1장</b> 사랑한 음악</a>
+    <span class="bn cur"><b>2장</b> 음악의 역사</span>
+    <a class="bn" href="https://pagodream.github.io/moviemusic/"><b>3장</b> 영화음악</a>
+  </nav>
   <header>
     <div class="memorial-tag">고문님의 방식으로, 아이들에게 · 2장</div>
     <div class="ornament"><span class="l"></span><span class="d"></span><span class="r"></span></div>
     <div class="latin-title">A Thousand Years of Music</div>
-    <h1>음악의 역사<br>천 년의 소리 여행<span class="small">— 한 줄짜리 노래에서 오늘의 영화음악까지 —</span></h1>
-    <p class="epigraph"><span class="q">&ldquo;</span>한 줄짜리 노래가 어떻게 오늘의 영화음악이 되었을까.<span class="q">&rdquo;</span></p>
-    <p class="intro">음악은 글자보다도 먼저, 사람과 함께 태어났어요. 고대에는 악보가 거의 남지 않아 그 소리를 직접 들을 순 없지만, 음악이 어떻게 시작됐는지부터 이야기를 엽니다. 한 줄짜리 노래가 여러 가락으로 어우러지고, 화려해졌다가, 깔끔해지고, 감정으로 차오르고, 마침내 갈래로 나뉘어 오늘의 영화음악까지 — 음악사의 흐름을 시대별로 함께 따라가 봅니다.</p>
+    <h1>음악의 역사<br>천 년의 소리 여행<span class="small">— 아이와 함께, 음악을 타고 떠나는 역사 여행 —</span></h1>
+    <p class="epigraph"><span class="q">&ldquo;</span>아주 먼 옛날 사람들은, 어떤 노래를 불렀을까?<span class="q">&rdquo;</span></p>
+    <p class="intro">음악은 글자보다도 먼저, 사람과 함께 태어났어요. 고대에는 악보가 거의 남지 않아 그 소리를 직접 들을 순 없지만, 음악이 어떻게 시작됐는지부터 살며시 이야기를 엽니다. 한 줄짜리 노래가 여러 가락으로 어우러지고, 화려해졌다가, 깔끔해지고, 감정으로 차오르며 자라나는 천 년의 이야기. 아이와 함께 한 시대씩, 귀 기울이며 천천히 따라가 봐요.</p>
   </header>
 
   <section class="thought">
@@ -308,7 +340,7 @@
     <div class="dl-bar">
       <button class="dl-btn" onclick="printMode('read')">🖨 읽기 자료로 저장 (PDF)</button>
       <button class="dl-btn" onclick="printMode('card')">🃏 시대 카드로 저장 (PDF)</button>
-      <div class="dl-note">버튼을 누르면 인쇄 창이 떠요. ‘대상’을 <b>PDF로 저장</b>으로 고르면 파일로 받을 수 있어요. (PC에서 가장 잘 됩니다.)</div>
+      <div class="dl-note"><b>읽기 자료</b>는 질문과 답이 함께 담긴 소책자, <b>시대 카드</b>는 한 장에 한 시대씩 ‘질문 + 들어볼 곡’만 담은 활동 카드예요. 버튼을 누르면 인쇄 창이 떠요. ‘대상’을 <b>PDF로 저장</b>으로 고르면 파일로 받습니다. (PC에서 가장 잘 됩니다.)</div>
     </div>
   </section>
 
@@ -328,9 +360,8 @@
   <footer>
     <p class="foot-quote"><span class="big">한 줄짜리 노래에서<br>천 년의 음악이 자랐습니다.</span>그리고 그 끝이, 바로<br>아이가 오늘 듣는 음악과 맞닿아 있어요.</p>
     <div class="ornament foot-orn"><span class="l"></span><span class="d"></span><span class="r"></span></div>
-    <div class="foot-name">음악의 역사 · 2장 (시범판)</div>
+    <div class="foot-name">음악의 역사 · 2장</div>
     <div class="foot-date">마더클럽</div>
-    <div class="maker">아이들의 지적 호기심을 위해, 만든이 <a href="https://www.youtube.com/@pagodream" target="_blank" rel="noopener">파고드림</a></div>
     <a class="page-turn next" href="https://pagodream.github.io/moviemusic/">
       <span class="pt-text"><span class="pt-label">다 음 장</span><span class="pt-title">영화음악 타임머신</span></span>
       <span class="pt-arrow">→</span>
@@ -339,6 +370,7 @@
       <span class="pt-arrow">←</span>
       <span class="pt-text"><span class="pt-label">이 전 장</span><span class="pt-title">이재훈 고문님이 사랑한 음악</span></span>
     </a>
+    <div class="maker">아이들의 지적 호기심을 위해, 만든이 <a href="https://www.youtube.com/@pagodream" target="_blank" rel="noopener">파고드림</a></div>
   </footer>
 </div>
 
@@ -668,8 +700,8 @@ function updatePlayBtn(state){const el=progEls();if(!el||!el.play)return;el.play
 function refit(tracksBox){if(tracksBox.closest('.chapter').classList.contains('open'))tracksBox.style.maxHeight=(tracksBox.scrollHeight+1400)+'px';}
 function printMode(mode){
   document.body.classList.add(mode==='card'?'cardmode':'readmode');
-  document.querySelectorAll('.chapter').forEach(function(c){c.classList.add('open','deep-open');});
-  setTimeout(function(){ window.print(); },350);
+  document.querySelectorAll('.chapter').forEach(function(c){c.classList.add('open');});
+  setTimeout(function(){ window.print(); },300);
 }
 window.addEventListener('afterprint',function(){document.body.classList.remove('cardmode','readmode');});
 buildAlbum();
