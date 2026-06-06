@@ -250,6 +250,14 @@
     .rs-title{font-family:var(--serif-ko);font-weight:700;font-size:24px;color:#1a140d!important;letter-spacing:-.01em}
     .rs-sub{font-family:var(--sans);font-size:11px;color:#9a8a6f!important;letter-spacing:.03em;margin:0 0 9mm 43px}
     .rs-body p{font-family:var(--serif-ko);font-size:15.5px;line-height:1.95;margin:0 0 .9em;text-indent:1.4em;text-align:justify;word-break:keep-all;color:#241c12!important}
+    .rs-words{margin-top:9mm;padding:5.5mm 7mm;border:1px solid #d8c9a8!important;border-radius:2.5mm;background:#faf5ea!important;break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .rs-words-h{font-family:var(--serif-ko);font-weight:700;font-size:13.5px;color:#7a5e2a!important;letter-spacing:.02em}
+    .rs-words-sub{font-family:var(--serif-ko);font-size:11px;color:#9a8a6f!important;margin:1mm 0 4.5mm}
+    .rs-words-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm 8mm}
+    .rs-word{display:flex;align-items:baseline;gap:2mm;break-inside:avoid}
+    .rw-k{font-family:var(--serif-ko);font-size:14.5px;font-weight:700;color:#2a2118!important;white-space:nowrap}
+    .rw-h{font-family:var(--serif-ko);font-size:12px;color:#9b7a3f!important;white-space:nowrap}
+    .rw-line{flex:1;border-bottom:1px dotted #c2ad84!important;min-width:12mm;align-self:flex-end;margin-bottom:2px}
     .rs-ask{margin-top:10mm;padding-top:6mm;border-top:1px solid #d8c9a8!important;break-inside:avoid}
     .rs-ask-h{font-family:var(--serif-ko);font-weight:700;font-size:15px;color:#3a2f20!important;margin-bottom:5mm}
     .rs-q{display:flex;gap:10px;font-family:var(--serif-ko);font-size:14px;line-height:1.85;margin-bottom:4mm;text-align:justify;word-break:keep-all}
@@ -376,6 +384,9 @@
 const ALBUM = [
   {num:"Ⅰ", era:"음악의 시작", latin:"Antiquity", ko:"🏺 고대", years:"선사 ~ 약 500년경", composers:"이름 없는 사람들 · 고대 그리스·로마", mood:"악보는 거의 남지 않았지만, 음악은 사람과 함께 시작됐다.",
    cards:[
+     {type:"music", icon:"🎵", cat:"가장 오래된 노래", id:"w8tfBLvlN98", sub:"후르리 찬가 6번 · 기원전 1400년경 · Peter Pringle 노래 복원(공식 영상)",
+      q:"지금 들리는 이 노래, 무려 3,400년 전 노래예요. 기네스 세계기록이 ‘악보가 남은, 세상에서 가장 오래된 노래’로 인정한 곡이죠. 한 번 들어보고, ‘이게 정말 그렇게 오래된 노래일까?’ 생각해 보세요.",
+      reveal:"<p>1950년대, 시리아 북부의 아주 오래된 도시 우가리트에서 고고학자들이 작은 점토판들을 찾아냈어요. 대부분은 부서졌지만, ‘H6’라 불리는 한 조각엔 가사와 함께 세상에서 가장 오래된 ‘악보’가 새겨져 있었죠. 달의 신의 아내인 니칼 여신에게 바치는 노래였어요.</p><p>점토판엔 가사와, 아홉 줄 리라를 어떻게 조율하고 어떤 음을 짚는지까지 적혀 있었어요. 그런데 ‘얼마나 빠르게, 어떤 리듬으로’ 부르는지는 빠져 있었고, 그 음 기호를 읽는 방법도 한 가지가 아니라서 학자마다 완전히 다른 멜로디로 되살렸대요. 지금까지 나온 해독본만도 다섯 가지가 넘어, ‘진짜 이렇게 들렸을까?’엔 아직 정답이 없어요. 게다가 그 옛말을 어떻게 발음했는지도 정확히 몰라서, 우리가 듣는 이 노래는 멜로디도 목소리도 오늘 사람들의 상상이 더해진 거예요.</p><p>💬 아이와 이렇게 이야기해 보세요 — ‘3,400년 전 사람도 누군가를 위해 노래를 만들었대. 그런데 얼마나 빠르게 부르는지도, 그 기호를 어떻게 읽는지도 정확히 몰라서 학자마다 다른 노래가 됐대. 너라면 이 노래를 어떻게 부르고 싶어? 빠르게, 아니면 천천히?’</p>"},
      {type:"video", icon:"📜", cat:"시대 배경·흐름", id:"DOBGUcxz0LE", sub:"음악의 기원",
       q:"사람은 언제, 왜 처음 노래하고 악기를 연주하기 시작했을까요? 음악은 도대체 어디에서 시작됐을까요? 영상에서 찾아보세요.",
       joy:"✨ 어디서 시작됐을까요?",
@@ -566,14 +577,25 @@ function playOverview(){
   var b=document.getElementById('ovVideo'); if(!b) return;
   b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/WxyEbs--1h0?rel=0&modestbranding=1&autoplay=1" title="클래식 음악사 총정리" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
 }
+const READWORDS = {
+"era-1":[{w:"발명",h:"發明"},{w:"의식",h:"儀式"},{w:"연주",h:"演奏"},{w:"교육",h:"敎育"},{w:"악보",h:"樂譜"}],
+"era-2":[{w:"성당",h:"聖堂"},{w:"수도사",h:"修道士"},{w:"성가",h:"聖歌"},{w:"화음",h:"和音"},{w:"기도",h:"祈禱"}],
+"era-3":[{w:"학문",h:"學問"},{w:"작곡가",h:"作曲家"},{w:"다성음악",h:"多聲音樂"},{w:"인쇄",h:"印刷"},{w:"활자",h:"活字"}],
+"era-4":[{w:"궁전",h:"宮殿"},{w:"장식",h:"裝飾"},{w:"협주곡",h:"協奏曲"},{w:"통주저음",h:"通奏低音"},{w:"건반악기",h:"鍵盤樂器"}],
+"era-5":[{w:"고전",h:"古典"},{w:"균형",h:"均衡"},{w:"교향곡",h:"交響曲"},{w:"현악",h:"絃樂"},{w:"신동",h:"神童"}],
+"era-6":[{w:"낭만",h:"浪漫"},{w:"감정",h:"感情"},{w:"열정",h:"熱情"},{w:"가곡",h:"歌曲"},{w:"송가",h:"頌歌"}],
+"era-7":[{w:"민족",h:"民族"},{w:"국민",h:"國民"},{w:"민요",h:"民謠"},{w:"고향",h:"故鄕"},{w:"영감",h:"靈感"}],
+"era-8":[{w:"규칙",h:"規則"},{w:"현대",h:"現代"},{w:"분위기",h:"雰圍氣"},{w:"공연",h:"公演"},{w:"관객",h:"觀客"}]
+};
 const READSHEET = {
 "era-1":{title:"음악은 어떻게 시작됐을까?",read:
 "<p>음악은 글자보다도, 어쩌면 말보다도 먼저 태어났을지 몰라요. 아주 먼 옛날 사람들은 함께 사냥을 나갈 때 발을 맞추려고 소리를 냈고, 곡식을 거둘 때 흥얼거렸으며, 누군가를 떠나보낼 때 울음 같은 노래를 불렀어요. 기쁠 때도 무서울 때도 사람들은 손뼉을 치고 발을 구르며 소리를 모았지요. 그러니까 음악은 누가 발명한 것이 아니라, 사람과 함께 자연스럽게 자라난 셈이에요.</p>"+
 "<p>큰 강을 끼고 도시를 세운 옛 이집트와 메소포타미아에서는, 신께 바치는 의식이나 왕의 잔치에 음악이 빠지지 않았어요. 사람들은 하프와 리라(작은 손하프), 갈대로 만든 피리, 북을 연주했지요. 무덤이나 신전 벽에 그려진 그림에는 악기를 든 연주자들이 또렷이 남아 있어서, 그때도 음악이 얼마나 소중했는지 짐작할 수 있답니다.</p>"+
 "<p>고대 그리스 사람들은 음악을 특별히 사랑했어요. 그들은 음악을 단순한 놀이가 아니라, 마음을 가다듬고 사람을 길러내는 ‘교육’이라고 여겼지요. 그래서 아이들은 글과 운동만이 아니라 음악도 함께 배웠답니다. 어떤 가락은 사람을 용감하게, 어떤 가락은 차분하게 만든다고 믿었거든요.</p>"+
 "<p>그중에서도 피타고라스라는 사람의 이야기가 유명해요. 우리가 수학 시간에 만나는 바로 그 피타고라스예요. 전설에 따르면 그는 팽팽한 줄을 퉁겨 보다가, 줄의 길이를 꼭 절반으로 줄이면 ‘같은데 더 높은 소리’가 난다는 사실을 발견했어요. 길이를 어떻게 나누느냐에 따라 어울리는 소리와 어울리지 않는 소리가 정해진다는 것을 알아챈 거죠. 음악 속에 숨은 ‘수의 질서’를 처음으로 들여다본 셈이에요.</p>"+
-"<p>그런데 고대 음악에는 안타까운 점이 하나 있어요. 그 시절에는 소리를 종이에 적어 두는 방법이 거의 없었기 때문에, 그 많던 노래가 대부분 사라져 버렸다는 거예요. 다행히 아주 드물게, 돌에 새겨진 노래가 하나 남아 있어요. 먼 옛날 그리스의 한 묘비에는 짧은 노래와 그 가락을 적은 기호가 함께 새겨져 있는데, 지금까지 전해지는 ‘완전한 한 곡’ 가운데 가장 오래된 것으로 여겨진답니다.</p>"+
-"<p>이렇게 고대의 소리는 대부분 수수께끼로 남았어요. 그래서 우리가 ‘직접 들어볼 수 있는’ 음악의 여행은, 소리를 적는 방법이 본격적으로 자라나는 다음 시대, 중세부터 시작하게 된답니다.</p>",
+"<p>그런데 고대 음악에는 안타까운 점이 하나 있어요. 그 시절에는 소리를 적어 두는 방법이 거의 없었기 때문에, 그 많던 노래가 대부분 사라져 버렸다는 거예요. 그런데 놀랍게도, 딱 하나 예외가 있답니다. 지금의 시리아 북부에 있던 우가리트라는 옛 도시에서, 무려 3,400년쯤 전에 점토판에 가사와 함께 ‘악보’를 새긴 노래가 발견됐어요. 달의 신의 아내인 니칼 여신에게 바치는 노래였지요. 적어 둔 덕분에 사라지지 않고, 오늘날 되살려 들어볼 수 있는 ‘세상에서 가장 오래된 노래’랍니다.</p>"+
+"<p>다만 점토판에는 ‘얼마나 빠르게, 어떤 리듬으로’ 부르는지는 적혀 있지 않았고, 음을 적은 기호를 읽는 방법도 한 가지가 아니어서, 학자마다 조금씩 다른 멜로디로 되살렸어요. 그래서 ‘진짜 이렇게 들렸을까?’에는 아직 정답이 없지요. 한편 먼 옛날 그리스의 한 묘비에도 짧은 노래와 가락 기호가 함께 새겨져 있는데, 이것은 지금까지 전해지는 ‘완전한 한 곡’ 가운데 가장 오래된 것으로 여겨진답니다.</p>"+
+"<p>이렇게 고대의 소리는 대부분 수수께끼로 남았어요. 적어 둔 몇몇 노래 덕분에 그 시절 소리를 살짝 엿들을 수는 있지만, 끊기지 않고 죽 이어지는 음악의 여행은 소리를 적는 방법이 본격적으로 자라나는 다음 시대, 중세부터 시작하게 된답니다.</p>",
 ask:["아주 먼 옛날 사람들은 글자도 악보도 없이, 왜 노래를 부르고 소리를 모았을까요? 어떤 마음이었을지 상상해 보세요.","피타고라스처럼, 고무줄이나 실을 팽팽히 당겨 퉁겨 보고 길이를 절반으로 줄여 보세요. 소리가 어떻게 달라지나요?","만약 그때 소리를 적어 두는 방법이 있었다면, 우리는 지금 무엇을 들을 수 있었을까요? 사라진 노래를 상상해 보세요."]},
 
 "era-2":{title:"다 같이 한 줄로 부른 노래",read:
@@ -670,7 +692,7 @@ function buildAlbum(){
       '<div class="ch-toggle">+</div></div>'+
       '<div class="tracks"><div class="tracks-inner">'+cardsHTML+bridgeHTML+'</div></div>';
     root.appendChild(sec);
-    if(typeof READSHEET!=='undefined'&&READSHEET[sec.id]){var _rs=READSHEET[sec.id];var _nm=ch.ko.replace(/[^가-힣]/g,'');var _d=document.createElement('div');_d.className='readsheet';_d.innerHTML='<div class="rs-head"><span class="rs-num">'+(ci+1)+'</span><span class="rs-title">'+(_rs.title||ch.era)+'</span></div><div class="rs-sub">'+_nm+' · '+ch.years+' · 읽기 자료</div><div class="rs-body">'+_rs.read+'</div><div class="rs-ask"><div class="rs-ask-h">스스로 생각해보기</div>'+_rs.ask.map(function(q,i){return '<div class="rs-q"><span class="rs-n">'+(i+1)+'</span><span class="rs-t">'+q+'</span></div>';}).join('')+'</div><div class="rs-foot">음악 시대 여행 · 마더클럽</div>';sec.appendChild(_d);}
+    if(typeof READSHEET!=='undefined'&&READSHEET[sec.id]){var _rs=READSHEET[sec.id];var _nm=ch.ko.replace(/[^가-힣]/g,'');var _d=document.createElement('div');_d.className='readsheet';_d.innerHTML='<div class="rs-head"><span class="rs-num">'+(ci+1)+'</span><span class="rs-title">'+(_rs.title||ch.era)+'</span></div><div class="rs-sub">'+_nm+' · '+ch.years+' · 읽기 자료</div><div class="rs-body">'+_rs.read+'</div>'+((typeof READWORDS!=='undefined'&&READWORDS[sec.id])?('<div class="rs-words"><div class="rs-words-h">한 번 더 생각해 볼 낱말</div><div class="rs-words-sub">뜻을 스스로 떠올려 보거나, 가족과 이야기해 보세요.</div><div class="rs-words-grid">'+READWORDS[sec.id].map(function(o){return '<div class="rs-word"><span class="rw-k">'+o.w+'</span><span class="rw-h">'+o.h+'</span><span class="rw-line"></span></div>';}).join('')+'</div></div>'):'')+'<div class="rs-ask"><div class="rs-ask-h">스스로 생각해보기</div>'+_rs.ask.map(function(q,i){return '<div class="rs-q"><span class="rs-n">'+(i+1)+'</span><span class="rs-t">'+q+'</span></div>';}).join('')+'</div><div class="rs-foot">음악 시대 여행 · 마더클럽</div>';sec.appendChild(_d);}
     const head=sec.querySelector('.ch-head');
     const tracksBox=sec.querySelector('.tracks');
     head.addEventListener('click',()=>{const o=sec.classList.toggle('open');tracksBox.style.maxHeight=o?(tracksBox.scrollHeight+1400)+'px':'0px';if(o){const rn=document.querySelector('.rib-node[data-target="'+sec.id+'"]');if(rn)rn.classList.add('lit');}});
