@@ -326,6 +326,15 @@
   .foot-date{font-family:var(--serif-la);font-size:13px;color:var(--muted);letter-spacing:.18em;margin-top:8px}
   .credit{font-size:11px;color:rgba(154,138,111,.6);margin-top:34px;letter-spacing:.04em;line-height:1.8}
   @media(max-width:520px){.ch-head{gap:13px;padding:26px 2px}.ch-num{min-width:42px}.thumb{width:66px;height:44px}.wrap{padding:0 18px 70px}}
+  .hint.hs{overflow:hidden;max-height:0;transition:max-height .45s ease}
+  .hints{gap:0}
+  .hint.hs.on{margin-bottom:8px}
+  .hint-no{font-family:var(--sans);font-size:11px;color:var(--gold);font-weight:600;margin-right:5px}
+  .qz-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
+  .qz-hint,.mw-toggle{font-family:var(--sans);font-size:12px;color:var(--gold);background:transparent;border:1px solid var(--line-soft);border-radius:100px;padding:7px 16px;cursor:pointer;transition:border-color .3s,background .3s}
+  .qz-hint:hover,.mw-toggle:hover{border-color:var(--gold-deep);background:rgba(201,162,91,.06)}
+  .qzwrite{margin:12px 0 2px}
+  .qzwrite .mw-body{margin-top:10px;padding:12px 13px;background:rgba(201,143,114,0.06);border:1px solid var(--line-soft);border-radius:10px}
 </style>
 </head>
 <body>
@@ -407,6 +416,7 @@ const ALBUM = [
       q:"악보가 거의 남지 않은 고대. 그래도 우리가 들어볼 수 있는 고대 음악의 ‘조각’이 남아 있을까요? 영상에서 만나보세요.",
       joy:"✨ 들렸나요?",
       reveal:"<p>아주 일부지만, 돌이나 파피루스에 적힌 기록 덕분에 되살아난 곡이 있어요(예: ‘세이킬로스의 노래’). 하지만 대부분은 영영 사라졌죠. 그래서 ‘적어두기(악보)’가 얼마나 소중한지 — 다음 중세에서 본격적으로 이어집니다.</p>"},
+     {type:"music", icon:"🎵", cat:"더 들어볼 곡", id:"XoTAJanV6aw", sub:"세이킬로스의 노래 · 기원후 1세기경 · 완전한 형태로 남은 가장 오래된 노래", q:"후르리 찬가는 ‘가장 오래된’ 노래지만 군데군데 빠져 있어요. 이 노래는 처음부터 끝까지 온전히 남았죠. 짧은 노랫말에 담긴 ‘삶에 대한 한마디’를 찾아보세요.", joy:"✨ 들어봤나요?", reveal:"<p>세이킬로스의 노래는 비석에 가사와 음표가 함께 새겨져, 멜로디 전체가 온전히 전해지는 가장 오래된 노래예요. ‘살아 있는 동안 빛나라, 슬퍼하지 말라, 삶은 잠깐이니’ — 2천 년 전 사람의 이 한마디가, 악보 덕분에 지금도 똑같이 울립니다. 후르리 찬가가 ‘가장 오래된 조각’이라면, 이 노래는 ‘가장 오래된 완곡’이에요.</p>"},
      {type:"quiz", icon:"❓", cat:"스무고개", q:"고대에도 분명 멋진 음악이 있었을 텐데, 우리는 왜 그 소리를 ‘직접’ 들을 수 없을까요?",
       hints:["음악은 ‘소리’예요. 소리는 시간이 지나면 어떻게 될까요?","녹음기도 없던 까마득한 옛날이에요.","연주가 끝나면 그 소리는?","남기려면 무언가에 ‘적어둬야’ 하는데...","고대에는 그 ‘적는 방법(악보)’이 거의 없었어요."], write:true,
       joy:"🎉 바로 그거예요!", reveal:'<div class="concept"><div class="concept-cap">사라지는 소리 · 기록이 없으면</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><polyline points="40,100 70,55 100,145 130,68 160,132 190,82 220,118 250,90 280,110 310,98 340,103 380,100 460,100" fill="none" stroke="var(--gold)" stroke-width="2.4"/><text x="210" y="170" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12.5" text-anchor="middle">소리는 울리다 잦아들어… 사라져요</text><path d="M474 100 L548 100 M540 92 L548 100 L540 108" fill="none" stroke="var(--rose)" stroke-width="2"/><text x="600" y="92" fill="var(--rose)" font-family="Nanum Myeongjo, serif" font-size="26" text-anchor="middle">?</text><text x="600" y="150" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="11.5" text-anchor="middle">남기려면 →<tspan x="600" dy="16">적어두기(악보)</tspan></text></svg></div><p>소리는 연주가 끝나면 사라져요. 녹음기도, 제대로 된 악보도 없던 고대에는 음악을 ‘남길’ 방법이 거의 없었죠. 그래서 고대의 소리는 대부분 수수께끼로 남았어요. 바로 이 ‘적어두기’의 발명이 다음 시대(중세)의 가장 큰 사건이랍니다.</p>'}
@@ -425,6 +435,8 @@ const ALBUM = [
       q:"처음엔 ‘한 가닥’으로 부르던 중세 노래에, 어느 날 ‘두 번째 목소리’가 살며시 더해졌어요. 영상에서 그 두 번째 소리가 언제 끼어드는지 귀로 찾아보세요.",
       joy:"✨ 알겠어요?",
       reveal:"<p>중세 음악은 화음 없이 한 가닥 가락으로 흐르는 ‘단선율’(그레고리오 성가)에서 출발해, 차차 여러 소리가 겹치는 ‘다성음악’의 싹이 트는 시기예요. 그리고 이 모든 걸 가능하게 한 게 바로 ‘악보의 탄생’이죠.</p>"},
+     {type:"music", icon:"🎵", cat:"더 들어볼 곡", id:"FJRkL-LTFb0", sub:"힐데가르트 폰 빙엔 · 〈O virtus Sapientiae〉 · The Tallis Scholars", q:"중세 노래는 대부분 ‘이름 없는 수도사들’의 것이었어요. 그런데 이 곡엔 분명한 주인이 있죠. 한 줄기로 흐르는 이 선율이 앞의 그레고리오 성가와 어떻게 다른지 느껴보세요.", joy:"✨ 들어봤나요?", reveal:"<p>힐데가르트 폰 빙엔은 이름이 또렷이 남은 ‘최초의 여성 작곡가’예요. 수녀원장이자 의사·작가이기도 했죠. 그의 선율은 성가처럼 한 가닥이지만, 음이 하늘로 길게 솟구치며 훨씬 자유롭게 날아올라요. ‘이름 없는 시대’ 속에서도 또렷한 한 사람의 목소리가 있었다는 증거랍니다.</p>"},
+     {type:"music", icon:"🎵", cat:"더 들어볼 곡", id:"Q2JvIyStzNA", sub:"페로탱 · 〈Viderunt omnes〉 · The Hilliard Ensemble", q:"앞의 성가는 ‘한 가닥’이었죠. 이 곡엔 목소리가 몇 가닥이나 겹쳐 있을까요? 한 음 위에 다른 음이 쌓이는 순간을 귀로 잡아보세요.", joy:"✨ 들어봤나요?", reveal:"<p>파리 노트르담의 페로탱은 한 가닥 성가 위에 두 번째·세 번째·네 번째 목소리를 쌓았어요. 바로 ‘다성음악’의 탄생이죠. 낮은 음이 길게 깔리고 그 위로 여러 목소리가 춤추듯 얽히는데, 이걸 정확히 적고 맞추려면 ‘악보’가 꼭 필요했어요. 중세의 가장 큰 사건이 여기서 일어납니다.</p>"},
      {type:"quiz", icon:"❓", cat:"스무고개", q:"노래를 ‘적어두는’ 방법이 없다면 무슨 일이 생길까요? 힌트를 하나씩 열어 생각해 보세요.",
       hints:["입에서 입으로만 전한다고 생각해 보세요.","사람마다 조금씩 다르게 기억하면?","백 년쯤 지나면 처음 노래와 같을까요?","그래서 누군가 노래를 ‘그려서’ 남기고 싶었어요.","줄을 긋고 그 위에 점을 찍으면, 음이 얼마나 높은지 보이겠죠?"], write:true,
       joy:"🎉 바로 그거예요!", reveal:'<div class="concept"><div class="concept-cap">악보의 탄생 · 소리를 ‘적어두기’</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><text x="160" y="26" fill="var(--cream)" font-family="Nanum Myeongjo, serif" font-size="14" text-anchor="middle">네우마 · 점과 기호</text><line x1="40" y1="125" x2="300" y2="125" stroke="var(--gold-deep)" stroke-width="1" stroke-dasharray="3 7" opacity="0.6"/><circle cx="70" cy="95" r="4" fill="var(--gold)"/><circle cx="112" cy="80" r="4" fill="var(--gold)"/><circle cx="154" cy="105" r="4" fill="var(--gold)"/><circle cx="196" cy="78" r="4" fill="var(--gold)"/><circle cx="238" cy="98" r="4" fill="var(--gold)"/><circle cx="280" cy="110" r="4" fill="var(--gold)"/><text x="170" y="160" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12" text-anchor="middle">높낮이가 흐릿해요</text><path d="M314 100 L356 100 M348 92 L356 100 L348 108" fill="none" stroke="var(--rose)" stroke-width="2"/><text x="540" y="26" fill="var(--cream)" font-family="Nanum Myeongjo, serif" font-size="14" text-anchor="middle">4선보 · 음을 정확히</text><line x1="380" y1="72" x2="650" y2="72" stroke="var(--gold-deep)" stroke-width="1"/><line x1="380" y1="92" x2="650" y2="92" stroke="var(--gold-deep)" stroke-width="1"/><line x1="380" y1="112" x2="650" y2="112" stroke="var(--gold-deep)" stroke-width="1"/><line x1="380" y1="132" x2="650" y2="132" stroke="var(--gold-deep)" stroke-width="1"/><circle cx="425" cy="112" r="5" fill="var(--gold-bright)"/><circle cx="475" cy="92" r="5" fill="var(--gold-bright)"/><circle cx="525" cy="102" r="5" fill="var(--gold-bright)"/><circle cx="575" cy="72" r="5" fill="var(--gold-bright)"/><circle cx="620" cy="92" r="5" fill="var(--gold-bright)"/><text x="515" y="162" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12" text-anchor="middle">선 위에 적으니 또렷해요</text></svg></div><p>적어두지 않으면 노래는 조금씩 변하다 사라져요. 그래서 중세 사람들은 점(네우마)으로, 다음엔 4개의 선 위에 음을 적었어요. ‘도레미’도 이 무렵 수도사 귀도 다레초가 찬송가 가사의 첫 글자에서 따와 만들었는데, 맨 처음엔 ‘도’가 아니라 ‘우트(Ut)’였답니다.</p>'}
@@ -451,6 +463,7 @@ const ALBUM = [
       q:"르네상스 다성음악을 가장 맑고 아름답게 완성한 작곡가는 누구였을까요? 위에서 들어본 그 곡의 주인공이기도 해요.",
       joy:"✨ 맞혔나요?",
       reveal:"<p>대표 주자가 팔레스트리나예요. 여러 목소리가 복잡하게 얽혀도 가사가 또렷이 들리고 더없이 맑게 어우러지도록 다듬었죠. 위에서 들은 〈Sicut cervus〉가 바로 그의 곡이랍니다.</p>"},
+     {type:"music", icon:"🎵", cat:"더 들어볼 곡", id:"Ca14d8rJp3M", sub:"조스캥 데프레 · 〈Ave Maria … virgo serena〉 · The Tallis Scholars", q:"여러 목소리가 ‘같은 가락’을 조금씩 늦게 따라 부르며 메아리처럼 번져요. 어느 목소리가 먼저 시작하고 어느 목소리가 따라오는지 쫓아가 보세요.", joy:"✨ 들어봤나요?", reveal:"<p>조스캥은 르네상스 최고의 거장이에요. 이 곡은 한 목소리가 가락을 내면 다른 목소리가 그대로 뒤따르는 ‘모방’ 기법으로, 돌림노래처럼 선율이 겹겹이 번져요. 팔레스트리나와 함께, 여러 가락이 질서 있게 어우러지는 르네상스 다성음악의 정수랍니다.</p>"},
      {type:"quiz", icon:"❓", cat:"스무고개", q:"여러 사람이 ‘서로 다른 가락’을 동시에 부르면, 엉망이 될까요 아니면 더 아름다워질까요?",
       hints:["혼자 부르면 가락이 ‘한 줄’이죠.","둘이 다른 음을 함께 내면?","어떤 음끼리는 같이 울리면 ‘예쁘게’ 어울려요.","여러 줄이 동시에 흐르는 걸 한 단어로 부른대요.","‘여러(多) 소리(聲)’ — 한자 뜻 그대로예요."], write:true,
       joy:"🎉 맞았어요!", reveal:'<div class="concept"><div class="concept-cap">다성음악 · 여러 목소리가 함께</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><path d="M40 70 C 140 40, 240 100, 340 70 S 540 40, 640 70" fill="none" stroke="var(--gold)" stroke-width="2.4"/><path d="M40 105 C 140 135, 240 75, 340 105 S 540 135, 640 105" fill="none" stroke="var(--rose)" stroke-width="2.4"/><path d="M40 140 C 160 110, 260 170, 360 140 S 540 110, 640 140" fill="none" stroke="var(--cream-dim)" stroke-width="2.4"/><text x="340" y="190" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12.5" text-anchor="middle">서로 다른 가락이 동시에, 그러나 어우러지게</text></svg></div><p>여러 가락이 동시에 어우러지는 걸 ‘다성음악’이라고 해요. 혼자선 한 줄이지만, 여럿이 규칙을 지키며 겹치면 풍성한 화음이 되죠. 르네상스는 바로 이 ‘함께 부르기’가 활짝 핀 시대예요.</p>'}
@@ -477,6 +490,8 @@ const ALBUM = [
       q:"바로크를 대표하는 작곡가는 누구일까요? 그가 세상을 떠난 해가 곧 ‘바로크의 끝’으로 여겨질 만큼 중요한 인물이에요.",
       joy:"✨ 맞혔나요?",
       reveal:"<p>대표 주자가 바흐예요(헨델·비발디와 함께요). ‘화려한 장식과 빈틈없는 짜임새’의 정점이었고, 그가 떠난 1750년이 바로크 시대의 끝으로 여겨진답니다.</p>"},
+     {type:"music", icon:"🎵", cat:"더 들어볼 곡", id:"2PVX7Umth1A", sub:"J.S.바흐 · 〈G선상의 아리아〉(관현악 모음곡 3번) · Voices of Music", q:"곡이 흐르는 내내, 저음에서 한 걸음씩 ‘뚜벅뚜벅’ 걸어 내려가는 소리가 멈추지 않아요. 그 묵직한 발걸음을 찾아 끝까지 따라가 보세요.", joy:"✨ 들어봤나요?", reveal:"<p>바흐는 바로크의 정점이에요. 위에서 바이올린이 한없이 노래하는 동안, 아래에선 저음(통주저음)이 한 걸음씩 꾸준히 걸어 내려가며 곡 전체를 받쳐줘요. 화려한 위층과 든든한 아래층 — 이 ‘이층 구조’가 바로크의 비밀이죠. ‘봄’과 같은 단체(Voices of Music)의 옛 악기 연주랍니다.</p>"},
+     {type:"music", icon:"🎵", cat:"더 들어볼 곡", id:"IUZEtVbJT5c", sub:"헨델 · 〈메시아〉 중 ‘할렐루야’ · Royal Choral Society (로열 앨버트홀)", q:"옛날 어느 임금님은 이 대목에서 자기도 모르게 ‘벌떡’ 일어섰다고 해요. 수많은 목소리가 한 단어를 외치며 차오르는 순간, 왜 일어나고 싶어질지 느껴보세요.", joy:"✨ 들어봤나요?", reveal:"<p>헨델은 비발디·바흐와 함께 바로크를 대표해요. 〈메시아〉의 ‘할렐루야’는 합창·관현악·트럼펫이 한데 쌓이며 거대한 산처럼 차올라요. 초연 때 영국 왕이 감동해 일어섰고, 그 뒤로 청중이 이 대목에서 함께 일어서는 전통이 생겼다고 전해진답니다. 바로크의 ‘화려함’이 온몸으로 느껴지죠.</p>"},
      {type:"quiz", icon:"❓", cat:"스무고개", q:"바로크 음악을 들으면 낮은음 하나가 처음부터 끝까지 ‘쿵-쿵’ 받쳐줘요. 왜 그렇게 만들었을까요?",
       hints:["건물로 치면 무엇에 해당할까요?","위층(가락)이 화려할수록, 아래가 튼튼해야겠죠?","낮은음이 흔들리면 위도 흔들려요.","그래서 낮은음을 ‘계속’ 깔아 둬요.","‘통째로(通) 받쳐주는 낮은음(低音)’이라 불러요."], write:true,
       joy:"🎉 그거예요!", reveal:'<div class="concept"><div class="concept-cap">통주저음 · 한결같이 받쳐주는 낮은음</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><text x="340" y="34" fill="var(--cream)" font-family="Nanum Myeongjo, serif" font-size="13" text-anchor="middle">화려한 가락</text><path d="M40 64 C 90 44, 110 84, 150 64 S 210 44, 250 64 S 330 84, 370 64 S 470 44, 520 64 S 600 84, 640 64" fill="none" stroke="var(--gold)" stroke-width="2.4"/><line x1="40" y1="140" x2="640" y2="140" stroke="var(--gold-deep)" stroke-width="6" stroke-linecap="round"/><text x="340" y="172" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12.5" text-anchor="middle">낮은음이 처음부터 끝까지 받쳐줘요</text></svg></div><p>낮은음이 처음부터 끝까지 받쳐주는 걸 ‘통주저음’이라고 해요. 튼튼한 토대 위에서 위쪽 가락이 마음껏 화려해질 수 있었죠. 그 받침을 주로 하프시코드와 첼로가 맡았답니다.</p>'}
@@ -503,6 +518,8 @@ const ALBUM = [
       q:"고전주의를 대표하는 작곡가들은 누구일까요? 위에서 들어본 보케리니·모차르트 외에 또 누가 있을까요?",
       joy:"✨ 맞혔나요?",
       reveal:"<p>하이든·모차르트·(초기) 베토벤이 대표 주자예요. 하이든이 교향곡·현악4중주의 틀을 다듬고, 모차르트가 그 위에 더없이 맑고 우아한 선율을 얹었죠. 위에서 들은 보케리니·모차르트도 이 시대의 별이랍니다.</p>"},
+     {type:"music", icon:"🎵", cat:"더 들어볼 곡", id:"VOLy6JxEDLw", sub:"하이든 · 교향곡 94번 〈놀람〉 2악장", q:"아주 여리고 얌전하게 흐르다가… 갑자기 ‘쾅!’ 하는 순간이 와요. 하이든이 왜 이런 장난을 숨겨뒀을지 생각하며, 그 깜짝 놀라는 지점을 잡아보세요.", joy:"✨ 들어봤나요?", reveal:"<p>하이든은 ‘교향곡의 아버지’예요. 조용한 멜로디가 흐르다 느닷없이 온 악단이 ‘쾅!’ 한 방을 날리죠. 음악회에서 졸던 귀족들을 깨우려 했다는 우스개가 전할 만큼 유명한 장난이에요. 고전주의는 이렇게 단정한 균형 속에 재치와 유머를 숨겨 둔 시대랍니다.</p>"},
+     {type:"music", icon:"🎵", cat:"더 들어볼 곡", id:"I7AQeN-x_Xs", sub:"베토벤 · 교향곡 5번 〈운명〉 1악장 · Paavo Järvi", q:"‘빠-빠-빠-밤’ 단 네 음으로 시작해요. 이 짧은 네 음이 곡 전체에서 몇 번이나, 어떻게 모습을 바꿔 다시 나타나는지 귀로 쫓아보세요.", joy:"✨ 들어봤나요?", reveal:"<p>베토벤은 고전주의의 균형을 완성하고, 동시에 그 틀을 깨뜨려 ‘낭만주의’의 문을 연 거인이에요. 단 네 음을 씨앗처럼 심어 곡 전체를 키워내죠. 단정함보다 ‘나의 감정과 운명’을 외치기 시작한 이 음악에, 다음 시대 낭만주의의 폭발이 예고됩니다.</p>"},
      {type:"quiz", icon:"❓", cat:"스무고개", q:"고전주의 음악은 ‘대화’를 닮았대요. 무슨 대화일까요? 힌트를 하나씩 열어 생각해 보세요.",
       hints:["둘이 함께 있을 때만 생기는 거예요. 무엇일까요?","한 사람이 먼저 무언가를 ‘건네면’, 상대는 어떻게 할까요?","말로 치면, 한쪽이 ‘물음표(?)’를 던지는 거예요.","음(가락)으로는, 한 가락이 위로 ‘올라가며’ 던져요.","그럼 다른 가락은 아래로 ‘내려오며’ 마침표(.)를 찍죠."], write:true,
       joy:"🎉 바로 그거예요!", reveal:'<div class="concept"><div class="concept-cap">대화하는 균형 · 질문하고, 대답하기</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><line x1="40" y1="150" x2="640" y2="150" stroke="var(--gold-deep)" stroke-width="1" stroke-dasharray="3 7" opacity="0.55"/><path d="M60 150 C 140 150, 175 65, 300 65" fill="none" stroke="var(--gold)" stroke-width="2.6" stroke-linecap="round"/><circle cx="300" cy="65" r="5.5" fill="var(--gold-bright)"/><text x="180" y="44" fill="var(--cream)" font-family="Nanum Myeongjo, serif" font-size="16" text-anchor="middle">질문 ↑</text><path d="M380 65 C 505 65, 545 150, 620 150" fill="none" stroke="var(--rose)" stroke-width="2.6" stroke-linecap="round"/><circle cx="620" cy="150" r="5.5" fill="var(--rose)"/><text x="500" y="44" fill="var(--cream)" font-family="Nanum Myeongjo, serif" font-size="16" text-anchor="middle">대답 ↓</text><text x="340" y="186" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12.5" text-anchor="middle">올라간 질문은, 내려오는 대답으로 차분히 마무리돼요</text></svg></div><p>질문하듯 올라간 가락은, 대답하듯 내려와 차분히 마무리돼요. ‘밥 먹었어?’ 하고 물으면 ‘응, 먹었어’ 하고 답하는 것처럼요. 이게 고전주의의 ‘대화하는 균형’이에요.</p>'}
@@ -526,6 +543,8 @@ const ALBUM = [
       q:"짧은 피아노 소품부터 몇 시간짜리 오페라까지, 낭만주의엔 갈래가 아주 다양했어요. 영상에서 ‘가장 짧은 것’과 ‘가장 큰 것’을 하나씩 찾아보세요.",
       joy:"✨ 새롭죠?",
       reveal:"<p>녹턴·즉흥곡 같은 짧고 서정적인 피아노 소품, 시에 붙인 노래(가곡), 그리고 이야기를 통째로 담은 교향시·오페라까지 폭이 무척 넓어졌어요. ‘짧은 속삭임’부터 ‘거대한 드라마’까지, 감정의 폭만큼 다양해진 거죠.</p>"},
+     {type:"music", icon:"🎵", cat:"더 들어볼 곡", id:"5XP5RP6OEJI", sub:"슈베르트 · 가곡 〈마왕〉 · 디트리히 피셔디스카우", q:"노래하는 사람은 한 명인데, 그 안에 ‘아버지·아이·마왕·이야기꾼’ 네 사람이 들어 있어요. 목소리가 바뀌는 순간을 찾아 누가 말하고 있는지 맞춰보세요.", joy:"✨ 들어봤나요?", reveal:"<p>낭만주의는 ‘감정과 이야기’의 시대예요. 슈베르트의 〈마왕〉은 시 한 편을 노래로 만든 ‘가곡’으로, 한 성악가가 목소리 색을 바꿔 네 인물을 모두 연기해요. 피아노는 쉼 없이 말발굽 소리를 두드리며 공포를 몰아가죠. 글과 음악이 하나로 녹아드는 낭만 가곡의 전형이랍니다.</p>"},
+     {type:"music", icon:"🎵", cat:"더 들어볼 곡", id:"RIck7OCm6UU", sub:"차이콥스키 · 〈백조의 호수〉 중 ‘정경’ · 카라얀 / 베를린 필", q:"오보에가 부는 이 멜로디만 들어도 호숫가 백조가 떠올라요. 슬픔과 아름다움이 함께 묻어나는 이 가락의 ‘색깔’을 한 단어로 표현해 보세요.", joy:"✨ 들어봤나요?", reveal:"<p>차이콥스키는 발레 음악을 예술의 경지로 끌어올렸어요. 〈백조의 호수〉의 이 주제는 오보에의 애틋한 선율로 시작해, 호수와 백조·마법·슬픈 사랑을 단번에 떠올리게 하죠. 이야기를 ‘소리로 그리는’ 낭만주의의 힘을 잘 보여주는 곡이에요.</p>"},
      {type:"quiz", icon:"❓", cat:"스무고개", q:"낭만주의 음악은 같은 곡 안에서도 아주 여리다가 갑자기 폭발하듯 커져요. 왜 그렇게 만들었을까요?",
       hints:["사람의 ‘마음’을 떠올려 보세요.","기쁠 때와 슬플 때, 목소리 크기가 같나요?","감정이 커지면 소리도?","그래서 여리게(p)에서 아주 세게(f)까지 크게 출렁여요.","고전주의의 ‘균형’ 대신, 이 시대는 무엇을 가장 중요하게 여겼을까요?"], write:true,
       joy:"🎉 맞아요!", reveal:'<div class="concept"><div class="concept-cap">감정의 파도 · 셈여림이 크게 출렁</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><path d="M40 100 C 170 96, 250 42, 345 42 C 440 42, 515 96, 640 100" fill="none" stroke="var(--gold)" stroke-width="2.6"/><path d="M40 100 C 170 104, 250 158, 345 158 C 440 158, 515 104, 640 100" fill="none" stroke="var(--rose)" stroke-width="2.6"/><text x="95" y="120" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="11" text-anchor="middle">여리게</text><text x="345" y="30" fill="var(--gold-bright)" font-family="Nanum Myeongjo, serif" font-size="13" text-anchor="middle">아주 세게!</text><text x="340" y="186" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12.5" text-anchor="middle">여리게 → 점점 크게 → 다시 잦아들어</text></svg></div><p>낭만주의는 ‘감정’을 가장 중요하게 여겼어요. 그래서 셈여림(소리의 크기)을 큰 파도처럼 출렁이게 해, 마음의 떨림을 그대로 전했죠. 오케스트라도 더 커지고, 음악이 이야기를 통째로 담기 시작했어요.</p>'}
@@ -544,6 +563,8 @@ const ALBUM = [
       q:"민족주의 음악엔 그 나라의 ‘무엇’이 숨어 있어요. 영상에서 ‘우리 동네 노래(민요) 같은 가락’이 들리는지 귀를 기울여 보세요.",
       joy:"✨ 알겠어요?",
       reveal:"<p>자기 나라의 민요 가락, 전통 춤의 리듬, 전설과 풍경을 음악 재료로 썼어요. 그래서 듣자마자 ‘아, 이건 그 나라 음악!’ 하고 느껴지죠. 스메타나·드보르자크(체코), 그리그(노르웨이), 시벨리우스(핀란드), 러시아 5인조가 대표 주자예요.</p>"},
+     {type:"music", icon:"🎵", cat:"더 들어볼 곡", id:"ASlch7R1Zvo", sub:"드보르자크 · 교향곡 9번 〈신세계로부터〉 2악장(라르고)", q:"고향을 멀리 떠나 본 적 있나요? 이 곡엔 ‘집이 그리운 마음’이 가득해요. 잉글리시 호른이 부는 향수 어린 멜로디를 가만히 들어보세요. (1장에서 고문님과도 만난 곡이에요.)", joy:"✨ 들어봤나요?", reveal:"<p>체코의 드보르자크가 미국에 머물 때 쓴 곡이에요. 머나먼 신세계에서 고향을 그리며 쓴 이 라르고는 ‘꿈속의 고향’이라 불릴 만큼 애틋하죠. 민족주의 작곡가들은 이렇게 자기 뿌리와 그리움을 음악에 담았어요. 고문님이 사랑하신 드보르자크, 1장과 이어지는 곡이랍니다.</p>"},
+     {type:"music", icon:"🎵", cat:"더 들어볼 곡", id:"ao4jIo4O85Q", sub:"그리그 · 〈페르 귄트〉 중 ‘산속 마왕의 궁전’ · 덴마크 국립교향악단", q:"처음엔 살금살금 아주 작게 시작해요. 그러다 점점 빨라지고 커지다가 끝엔 폭발하죠. ‘점점 빨라지고 커지는’ 그 변화를 몸으로 느껴보세요.", joy:"✨ 들어봤나요?", reveal:"<p>노르웨이의 그리그가 쓴 이 곡은, 주인공이 산속 괴물들의 소굴에서 쫓기는 장면 음악이에요. 같은 가락이 살금살금 작게 시작해 점점 빨라지고 커지며 끝내 미친 듯 폭발하죠. 북유럽의 신화와 풍경을 소리로 그린 민족주의 음악의 대표작이랍니다.</p>"},
      {type:"quiz", icon:"❓", cat:"스무고개", q:"독일·이탈리아가 음악의 중심이던 시절, 변두리 나라 작곡가들은 어떻게 ‘우리만의 음악’을 만들었을까요?",
       hints:["다른 나라를 그대로 따라 하면 ‘우리 것’이 될까요?","할머니가 불러주시던 노래(민요)를 떠올려 보세요.","우리나라 춤, 전설, 강과 산을 음악에 담으면?","그러면 듣자마자 ‘아, 그 나라 음악!’ 하고 느껴지겠죠.","자기 ‘민족(나라)’의 색을 담았다고 해서, 이걸 OOO 음악이라 불러요."], write:true,
       joy:"🎉 바로 그거예요!", reveal:'<div class="concept"><div class="concept-cap">음악으로 그린 ‘우리 강, 우리 노래’</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><path d="M30 55 C 130 40, 170 108, 260 96 C 350 85, 400 44, 480 80 C 560 114, 610 118, 660 104" fill="none" stroke="var(--gold)" stroke-width="5" stroke-linecap="round"/><circle cx="120" cy="46" r="4" fill="var(--rose)"/><circle cx="300" cy="60" r="4" fill="var(--gold-bright)"/><circle cx="470" cy="58" r="4" fill="var(--rose)"/><circle cx="600" cy="92" r="4" fill="var(--gold-bright)"/><text x="340" y="165" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12.5" text-anchor="middle">스메타나 〈몰다우〉처럼, 저마다 ‘고향’을 노래했어요</text></svg></div><p>자기 나라의 민요·춤·전설·풍경을 음악에 담은 거예요. 그래서 스메타나의 〈몰다우〉를 들으면 체코의 강이, 그리그를 들으면 노르웨이의 아침이 떠오르죠. 이렇게 ‘우리 색깔’을 담은 흐름을 민족주의(국민악파)라고 해요. 음악으로 ‘우리는 누구인가’를 그린 셈이죠.</p>'}
@@ -564,6 +585,8 @@ const ALBUM = [
      {type:"video", icon:"🎬", cat:"대중음악", id:"m5k5TaE1ayk", sub:"대중음악의 역사 ② 1980~현재",
       q:"신시사이저·컴퓨터·인터넷이 나타나면서 음악은 또 어떻게 달라졌을까요? 한 가지가 아니라 수많은 갈래로 퍼진 이유를 영상에서 찾아보세요.",
       reveal:"<p>전자악기(신시사이저)와 컴퓨터로 누구나 새로운 소리를 만들 수 있게 되고, 인터넷으로 전 세계 음악이 순식간에 오갔어요. 그러면서 팝·힙합·일렉트로닉처럼 장르가 폭발하듯 늘어났죠. 천 년 전 성당에서 한 줄로 부르던 노래가, 오늘 아이가 이어폰으로 듣는 노래까지 이렇게 이어진 거예요.</p>"},
+     {type:"music", icon:"🎵", cat:"더 들어볼 곡", id:"cH2PH0auTUU", sub:"거슈윈 · 〈랩소디 인 블루〉 · 번스타인 / 뉴욕 필", q:"맨 처음 클라리넷이 ‘위이잉~’ 미끄러지듯 올라가요. 클래식 같기도 재즈 같기도 한 이 음악, 둘 중 무엇에 더 가깝게 들리는지 골라보세요.", joy:"✨ 들어봤나요?", reveal:"<p>20세기 미국의 거슈윈은 클래식과 재즈를 한 그릇에 섞었어요. 그 유명한 클라리넷의 미끄러지는 시작부터, 도시의 활기와 재즈의 자유가 넘실대죠. 근현대 음악이 ‘하나의 규칙’에서 벗어나 여러 갈래로 뻗어 나갔음을 보여주는 신호탄 같은 곡이에요.</p>"},
+     {type:"music", icon:"🎵", cat:"더 들어볼 곡", id:"rqErQ1sn74k", sub:"존 윌리엄스 · 〈스타워즈〉 ‘제국의 행진’ · 작곡가 직접 지휘(90세)", q:"이 음악만 들려도 머릿속에 어떤 장면·인물이 떠오르나요? 소리가 어떻게 ‘무서운 악당’을 표현하는지 느껴보세요. (다음은 3장, 영화음악의 세계예요.)", joy:"✨ 들어봤나요?", reveal:"<p>오늘날 가장 사랑받는 영화음악 작곡가 존 윌리엄스예요. 단호한 행진곡 리듬과 무거운 저음으로 악당(다스 베이더)을 단번에 그려내죠. 이 영상은 그가 90세에 직접 지휘한 무대랍니다. 음악이 ‘이야기와 인물’을 그리는 힘 — 이제 그 세계를 3장 〈영화음악 타임머신〉에서 만나요.</p>"},
      {type:"quiz", icon:"❓", cat:"스무고개", q:"영화에서 상어가 나타나기 전, ‘두둥... 두둥...’ 두 음만 들려도 왜 무서워질까요?",
       hints:["그 소리가 들리면 무엇이 ‘곧 온다’는 느낌이 들죠?","음악이 눈보다 먼저 알려주는 거예요.","두 음이 점점 빨라지면, 마음은 어떻게 될까요?","즉, 음악이 ‘위험이 다가온다’는 신호를 미리 줘요.","이렇게 어떤 것을 나타내는 짧은 음악 신호를 ‘라이트모티프’라고 해요."], write:true,
       joy:"🎉 바로 그거예요!", reveal:'<div class="concept"><div class="concept-cap">라이트모티프 · 음악이 미리 주는 신호</div><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img"><line x1="40" y1="130" x2="595" y2="130" stroke="var(--gold-deep)" stroke-width="1" stroke-dasharray="3 7" opacity="0.5"/><circle cx="60" cy="120" r="6" fill="var(--gold)"/><circle cx="95" cy="104" r="6" fill="var(--gold)"/><circle cx="180" cy="120" r="6" fill="var(--gold)"/><circle cx="212" cy="104" r="6" fill="var(--gold)"/><circle cx="285" cy="120" r="6" fill="var(--gold)"/><circle cx="313" cy="104" r="6" fill="var(--gold)"/><circle cx="375" cy="120" r="6" fill="var(--gold)"/><circle cx="399" cy="104" r="6" fill="var(--gold)"/><circle cx="452" cy="120" r="6" fill="var(--gold)"/><circle cx="472" cy="104" r="6" fill="var(--gold)"/><text x="250" y="172" fill="var(--muted)" font-family="Nanum Myeongjo, serif" font-size="12.5" text-anchor="middle">두 음이, 점점 빨라지며 다가와요</text><path d="M500 112 L585 112 M577 104 L585 112 L577 120" stroke="var(--rose)" stroke-width="2" fill="none"/><text x="615" y="120" fill="var(--rose)" font-family="Nanum Myeongjo, serif" font-size="24" text-anchor="middle">!</text></svg></div><p>두 음(라이트모티프)이 ‘위험이 온다’고 미리 알려주는 거예요. 존 윌리엄스가 〈죠스〉에서 단 두 음으로 만든 마법이죠. 점점 빨라지며 마음을 조이게 해요. 이렇게 음악으로 감정을 그리는 솜씨가, 바로 오늘의 ‘영화음악’이 됐답니다.</p>'}
@@ -685,15 +708,16 @@ function buildAlbum(){
     ch.cards.forEach(function(c){
       let inner='';
       if(c.type==='quiz'){
-        inner='<div class="hints">'+(c.hints||[]).map(function(h,i){return '<div class="hint"><button class="hint-btn">💡 힌트 '+(i+1)+'</button><div class="hint-text"><div class="hint-pad">'+h+'</div></div></div>';}).join('')+'</div>'+(c.write?'<div class="mywrite"><div class="mw-label">✏️ 내 생각 적어보기 <span>(한 줄이면 충분해요 · 그림으로 그려도 좋아요)</span></div><textarea class="mw-area" rows="2" placeholder="여기에 내 생각을 적어보세요"></textarea></div>':'');
+        var _hh=(c.hints&&c.hints.length);inner='<div class="hints">'+(c.hints||[]).map(function(h,i){return '<div class="hint hs"><div class="hint-pad"><b class="hint-no">💡 힌트 '+(i+1)+'</b>'+h+'</div></div>';}).join('')+'</div>'+(c.write?'<div class="qzwrite"><button class="mw-toggle">✏️ 내 생각 적어보기</button><div class="mw-body" style="display:none"><div class="mw-label">한 줄이면 충분해요 <span>· 그림으로 그려도 좋아요</span></div><textarea class="mw-area" rows="2" placeholder="여기에 내 생각을 적어보세요"></textarea></div></div>':'')+'<div class="qz-row">'+(_hh?'<button class="qz-hint">💡 힌트 보기</button>':'')+'</div>';
       } else {
         const act=(c.type==='music')?'▶ 들어보기':'▶ 영상으로 알아보기';
         inner='<div class="track" data-id="'+c.id+'">'+thumbHTML(c.id)+'<div class="t-info"><div class="t-title">'+act+'</div><div class="t-sub">'+(c.sub||'')+'</div><div class="eq"><span></span><span></span><span></span><span></span></div></div></div><div class="player-slot"></div>';
       }
-      const rbLabel=(c.type==='quiz')?'충분히 생각했나요? 정답 펼치기':'스스로 듣고·보고 나서, 펼쳐보기';
+      const rbLabel=(c.type==='quiz')?'정답 펼쳐보기':'스스로 듣고·보고 나서, 펼쳐보기';
+      const rbStyle=(c.type==='quiz' && c.hints && c.hints.length)?' style="display:none"':'';
       cardsHTML+='<div class="qcard"><div class="q-cat">'+(c.icon||'')+' '+(c.cat||'')+'</div>'+
         '<div class="q-hook">'+c.q+'</div>'+inner+
-        '<button class="reveal-btn">'+rbLabel+'</button>'+
+        '<button class="reveal-btn"'+rbStyle+'>'+rbLabel+'</button>'+
         '<div class="reveal"><div class="reveal-inner"><div class="mw-echo"></div>'+(c.reveal||'')+'</div></div></div>';
     });
     const bridgeHTML=ch.bridge?'<a class="bridge" href="'+ch.bridge.href+'"><div class="bridge-sub">'+ch.bridge.sub+'</div><div class="bridge-go">'+ch.bridge.label+' →</div></a>':'';
@@ -718,6 +742,7 @@ function buildAlbum(){
         const ta=card.querySelector('.mw-area'), echo=card.querySelector('.mw-echo');
         if(echo){ var _v=ta?ta.value.trim().replace(/[<>]/g,' '):''; echo.innerHTML=_v?('<div class="mw-echo-l">내가 적어본 생각</div><div class="mw-echo-t">\u201c'+_v+'\u201d</div>'):''; }
         card.classList.add('revealed');
+        btn.style.display='none';
         rv.style.maxHeight=(rv.scrollHeight+60)+'px';
         setTimeout(()=>refit(tracksBox),60);
       });
@@ -727,6 +752,26 @@ function buildAlbum(){
         const ht=btn.nextElementSibling; const open=ht.style.maxHeight&&ht.style.maxHeight!=='0px';
         ht.style.maxHeight=open?'0px':(ht.scrollHeight+20)+'px';
         btn.classList.toggle('used',!open);
+        setTimeout(()=>refit(tracksBox),60);
+      });
+    });
+    sec.querySelectorAll('.qz-hint').forEach(function(btn){
+      btn.addEventListener('click',function(ev){ev.stopPropagation();
+        const card=btn.closest('.qcard');
+        const steps=card.querySelectorAll('.hint.hs');
+        let shown=0; steps.forEach(function(s){if(s.classList.contains('on'))shown++;});
+        if(shown<steps.length){var nx=steps[shown];nx.classList.add('on');nx.style.maxHeight=(nx.scrollHeight+24)+'px';shown++;}
+        if(shown>=steps.length){btn.style.display='none';}else{btn.textContent='💡 힌트 '+(shown+1)+' 보기';}
+        var rb=card.querySelector('.reveal-btn'); if(rb)rb.style.display='block';
+        setTimeout(()=>refit(tracksBox),60);
+      });
+    });
+    sec.querySelectorAll('.mw-toggle').forEach(function(btn){
+      btn.addEventListener('click',function(ev){ev.stopPropagation();
+        const body=btn.nextElementSibling; const open=body.style.display!=='none';
+        body.style.display=open?'none':'block';
+        btn.textContent=open?'✏️ 내 생각 적어보기':'✏️ 접기';
+        if(!open){var card=btn.closest('.qcard');var rb=card&&card.querySelector('.reveal-btn');if(rb)rb.style.display='block';var ta=body.querySelector('.mw-area');if(ta)ta.focus();}
         setTimeout(()=>refit(tracksBox),60);
       });
     });
