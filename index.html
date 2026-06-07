@@ -335,7 +335,10 @@
   .qz-hint:hover,.mw-toggle:hover{border-color:var(--gold-deep);background:rgba(201,162,91,.06)}
   .qzwrite{margin:12px 0 2px}
   .qzwrite .mw-body{margin-top:10px;padding:12px 13px;background:rgba(201,143,114,0.06);border:1px solid var(--line-soft);border-radius:10px}
-</style>
+  .musicbar-wrap{text-align:center;margin:4px 0 30px}
+  .mb-howto{font-family:var(--sans);font-size:11.5px;color:var(--cream-dim);margin-top:11px;letter-spacing:.01em}
+  .mb-howto b{color:var(--gold);font-weight:500}
+  </style>
 </head>
 <body>
 <div class="wrap">
@@ -363,6 +366,8 @@
   <div class="ribbon"><div class="rib-line"></div><button class="rib-node" data-target="era-1"><span class="rib-dot"></span><span class="rib-num">Ⅰ</span><span class="rib-era">고대</span><span class="rib-key">시작</span></button><button class="rib-node" data-target="era-2"><span class="rib-dot"></span><span class="rib-num">Ⅱ</span><span class="rib-era">중세</span><span class="rib-key">한 줄</span></button><button class="rib-node" data-target="era-3"><span class="rib-dot"></span><span class="rib-num">Ⅲ</span><span class="rib-era">르네상스</span><span class="rib-key">어우러짐</span></button><button class="rib-node" data-target="era-4"><span class="rib-dot"></span><span class="rib-num">Ⅳ</span><span class="rib-era">바로크</span><span class="rib-key">화려</span></button><button class="rib-node" data-target="era-5"><span class="rib-dot"></span><span class="rib-num">Ⅴ</span><span class="rib-era">고전</span><span class="rib-key">균형</span></button><button class="rib-node" data-target="era-6"><span class="rib-dot"></span><span class="rib-num">Ⅵ</span><span class="rib-era">낭만</span><span class="rib-key">감정</span></button><button class="rib-node" data-target="era-7"><span class="rib-dot"></span><span class="rib-num">Ⅶ</span><span class="rib-era">민족주의</span><span class="rib-key">우리 색</span></button><button class="rib-node" data-target="era-8"><span class="rib-dot"></span><span class="rib-num">Ⅷ</span><span class="rib-era">근현대</span><span class="rib-key">자유</span></button></div>
   <p class="ov-story">음악이 사람과 함께 태어나, 한 줄짜리 노래가 여러 가락으로 어우러지고, 화려해졌다가, 깔끔하게 정돈되고, 감정으로 차오르고, 저마다의 색깔을 뽐내다, 마침내 규칙을 깨며 여러 갈래로 — 오늘의 영화음악(3장)까지 이어집니다. 궁금한 시대를 눌러 바로 떠나 보세요.</p>
 </section>
+
+  <div class="musicbar-wrap"><div class="modebar" id="musicBar"><button class="mode-btn" id="mbAll">🔁 전체 반복 · 음악만 모아 듣기</button><button class="mode-btn" id="mbOne">🔂 한 곡 반복</button></div><div class="mb-howto">곡을 누르면 바로 재생 · <b>전체 반복</b>은 설명 영상 없이 <b>음악만</b> 이어서 들려줘요</div></div>
 
   <main class="chapters" id="chapters"></main>
 
@@ -596,7 +601,7 @@ const ALBUM = [
 
 const PLAY_SVG = '<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(201,162,91,.92)"/><path d="M10 8.5l6 3.5-6 3.5z" fill="#15110c"/></svg>';
 function thumbHTML(id){return '<div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt=""><span class="play">'+PLAY_SVG+'</span></div>';}
-let activeTrack=null, player=null, apiReady=false, pendingTrack=null, playMode='one', allTracks=[], progTimer=null, repeatOne=false;
+let activeTrack=null, player=null, apiReady=false, pendingTrack=null, playMode='one', allTracks=[], musicTracks=[], progTimer=null, repeatOne=false, repeatAll=false;
 const ytTag=document.createElement('script'); ytTag.src='https://www.youtube.com/iframe_api'; document.head.appendChild(ytTag);
 window.onYouTubeIframeAPIReady=function(){apiReady=true; if(pendingTrack){const t=pendingTrack; pendingTrack=null; createPlayer(t);}};
 
@@ -711,7 +716,7 @@ function buildAlbum(){
         var _hh=(c.hints&&c.hints.length);inner='<div class="hints">'+(c.hints||[]).map(function(h,i){return '<div class="hint hs"><div class="hint-pad"><b class="hint-no">💡 힌트 '+(i+1)+'</b>'+h+'</div></div>';}).join('')+'</div>'+(c.write?'<div class="qzwrite"><button class="mw-toggle">✏️ 내 생각 적어보기</button><div class="mw-body" style="display:none"><div class="mw-label">한 줄이면 충분해요 <span>· 그림으로 그려도 좋아요</span></div><textarea class="mw-area" rows="2" placeholder="여기에 내 생각을 적어보세요"></textarea></div></div>':'')+'<div class="qz-row">'+(_hh?'<button class="qz-hint">💡 힌트 보기</button>':'')+'</div>';
       } else {
         const act=(c.type==='music')?'▶ 들어보기':'▶ 영상으로 알아보기';
-        inner='<div class="track" data-id="'+c.id+'">'+thumbHTML(c.id)+'<div class="t-info"><div class="t-title">'+act+'</div><div class="t-sub">'+(c.sub||'')+'</div><div class="eq"><span></span><span></span><span></span><span></span></div></div></div><div class="player-slot"></div>';
+        inner='<div class="track'+(c.type==='music'?' is-music':'')+'" data-id="'+c.id+'">'+thumbHTML(c.id)+'<div class="t-info"><div class="t-title">'+act+'</div><div class="t-sub">'+(c.sub||'')+'</div><div class="eq"><span></span><span></span><span></span><span></span></div></div></div><div class="player-slot"></div>';
       }
       const rbLabel=(c.type==='quiz')?'정답 펼쳐보기':'스스로 듣고·보고 나서, 펼쳐보기';
       const rbStyle=(c.type==='quiz' && c.hints && c.hints.length)?' style="display:none"':'';
@@ -777,6 +782,8 @@ function buildAlbum(){
     });
   });
   allTracks=Array.from(document.querySelectorAll('.track'));
+  musicTracks=allTracks.filter(function(t){return t.classList.contains('is-music');});
+  (function(){var mbAll=document.getElementById('mbAll'),mbOne=document.getElementById('mbOne');window.syncMusicBar=function(){if(mbAll)mbAll.classList.toggle('on',repeatAll);if(mbOne)mbOne.classList.toggle('on',repeatOne);var pr=document.querySelector('.prepeat');if(pr)pr.classList.toggle('on',repeatOne);};if(mbOne&&!mbOne._b){mbOne._b=1;mbOne.addEventListener('click',function(){repeatOne=!repeatOne;if(repeatOne)repeatAll=false;window.syncMusicBar();});}if(mbAll&&!mbAll._b){mbAll._b=1;mbAll.addEventListener('click',function(){repeatAll=!repeatAll;if(repeatAll){repeatOne=false;if(!activeTrack&&musicTracks.length){selectTrack(musicTracks[0]);setTimeout(function(){musicTracks[0].scrollIntoView({behavior:'smooth',block:'center'});},160);}}window.syncMusicBar();});}window.syncMusicBar();})();
   document.querySelectorAll('.rib-node').forEach(function(n){
     n.addEventListener('click',function(){
       const sec=document.getElementById(n.getAttribute('data-target')); if(!sec)return;
@@ -805,7 +812,7 @@ function selectTrack(trackEl){
   slot.querySelector('.pnext').addEventListener('click',function(ev){ev.stopPropagation();goRelative(1);});
   slot.querySelector('.pplay').addEventListener('click',function(ev){ev.stopPropagation();togglePlay();});
   const rb=slot.querySelector('.prepeat');
-  rb.addEventListener('click',function(ev){ev.stopPropagation();repeatOne=!repeatOne;rb.classList.toggle('on',repeatOne);});
+  rb.addEventListener('click',function(ev){ev.stopPropagation();repeatOne=!repeatOne;if(repeatOne)repeatAll=false;rb.classList.toggle('on',repeatOne);if(window.syncMusicBar)window.syncMusicBar();});
   const bar=slot.querySelector('.pbar');
   bar.addEventListener('click',function(ev){ev.stopPropagation();
     if(!player||!player.getDuration)return;
@@ -827,7 +834,7 @@ function createPlayer(trackEl){
     playerVars:{autoplay:1,rel:0,modestbranding:1,playsinline:1,start:start||0},
     events:{onReady:function(e){try{e.target.playVideo();}catch(x){}startProgress();},onStateChange:onState,onError:onPlayerError}});
 }
-function listFor(){ return playMode==='folder'?Array.from(activeTrack.closest('.tracks-inner').querySelectorAll('.track')):allTracks; }
+function listFor(){ if(repeatAll&&musicTracks.length)return musicTracks; return playMode==='folder'?Array.from(activeTrack.closest('.tracks-inner').querySelectorAll('.track')):allTracks; }
 function goRelative(delta){
   if(!activeTrack)return;
   const list=listFor(); const idx=list.indexOf(activeTrack); if(idx<0)return;
@@ -843,7 +850,7 @@ function showBlockedFallback(){
   const id=activeTrack.getAttribute('data-id');
   frame.innerHTML='<div class="blocked"><div class="blocked-msg">이 곡은 외부 사이트 재생이 막혀 있어요.<br>유튜브에서 바로 들으실 수 있습니다.</div><a class="blocked-link" href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">▶ YouTube에서 듣기</a></div>';
 }
-function advance(){ if(playMode==='one'||!activeTrack)return; goRelative(1); }
+function advance(){ if(!activeTrack)return; if(repeatAll){goRelative(1);return;} if(playMode==='one')return; goRelative(1); }
 function stopActive(){
   stopProgress();
   if(player){try{player.destroy();}catch(e){}player=null;}
